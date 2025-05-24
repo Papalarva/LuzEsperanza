@@ -1,12 +1,7 @@
 @media (min-width: 768px)   {
     .cabecera{
         justify-content: space-between; 
-        padding: 0 1rem;
-        height: min-content;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 100;
+        padding: 0 1rem; 
     }
     .menu {
         width: auto;
@@ -51,7 +46,7 @@
         border-radius: 0 0 1rem 1rem;
     }
     .menu__enlace{
-        position: relative;font-weight: 600;  
+        position: relative;font-weight: 600;   
     }
     .menu__enlace::after {
         content: '';  
@@ -71,23 +66,25 @@
         background-color: transparent;
         color: var(--azul);
         
-    }
-    .portada__frase{  
-    padding: 0 2rem 0 2rem;
-        font-size: 2rem; 
     } 
-    .portada {
-        margin-top: 90.39px;
-        height: calc(100vh - 90.39px);
-    }
 }
 @media (min-width: 993px) {
     .cabecera__nombre {
         display: block;
         width: max-content;
     } 
+    .portada__frase{
+        width: 700px;
+    }
 
 }
 @media (min-width: 1201px) {
+    .portada__frase{
+        font-size: 3rem;
+        width: 100%;
+    }
+    .portada { 
+         height: calc(80vh); 
+    }
 
 }

@@ -14,7 +14,7 @@
     <header class="header">
         <section class="cabecera">
             <div class="cabecera__logo">
-                <img class="cabecera__img" src="assets/img/logo.png" alt="">
+                <img class="cabecera__img" src="assets/img/logo.png" alt="Logo de Hospital Luz de Esperanza">
                 <p class="cabecera__nombre">Hospital Luz de Esperanza</p>
                 <i id="botonMenu" class="fa fa-bars menu__boton" onclick="abrirMenu()" aria-hidden="true"></i>
             </div>
@@ -44,9 +44,10 @@
             </nav>
         </section>
         <div class="portada">
-            <h2 class="portada__frase">"Cuidamos tu salud con dedicación y compromiso, porque tu bienestar es nuestra
-                prioridad."
-            </h2>
+            <div class="portada__texto"> 
+                <h3 class="portada__frase">"Cuidamos tu salud con dedicación y compromiso, porque tu bienestar es nuestra prioridad."</h3>
+                <p>Atención médica de calidad, con un enfoque humano.</p>
+            </div>
             <video class="portada__video" id="portadaVideo" src="" autoplay loop muted playsinline   oncontextmenu="return false;"></video>
             <script>
                 function cambiarVideo() {
@@ -61,9 +62,12 @@
                     video.load();
                     video.play();
                 }
-
+                
                 window.addEventListener("DOMContentLoaded", cambiarVideo);
-                window.addEventListener("resize", cambiarVideo);
+                window.addEventListener("resize", function () {
+                    cambiarVideo();
+                    menuDesplegable(0);
+                });
             </script>
 
         </div>
