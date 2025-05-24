@@ -1,0 +1,199 @@
+/* -------------------------------------------------------------------------- */
+/*                              ESTILOS GENERALES                             */
+/* -------------------------------------------------------------------------- */
+
+/* Importacion de tipografias */
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+/* Variables */
+:root {
+  --titulo:"Poppins", sans-serif  ;
+  --texto: "Inter", sans-serif;
+  --rosa: #731a4b;
+  --azul: #2192bf;
+  --azulOscuro: #025e73;
+  --verde: #72a69c; 
+  --blanco: #fff;
+  --negro: #000;
+  --padding: 1rem;
+  --transition: all 0.5s ease-in-out;
+}
+body {
+    display: grid;
+    min-height: 100dvh;
+    grid-template-rows: auto 1fr auto;
+    overflow-x: hidden; 
+}
+/* Formateo de página */
+* {
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  font-family: var(--texto);
+  box-sizing: border-box;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                    INDEX                                   */
+/* -------------------------------------------------------------------------- */
+
+/* ---------------------------------- MENU ---------------------------------- */
+.no-scroll{
+    overflow: hidden;
+}
+.cabecera {
+    display: flex;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+    padding: var(--padding);
+    background-color: var(--blanco);
+}
+
+.cabecera__logo {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cabecera__img {
+    height: 50px;
+}
+
+.cabecera__nombre {
+    font-family: var(--titulo);
+    font-weight: 800;
+    color: var(--azul);
+}
+
+.menu__boton {
+    font-size: 50px;
+    width: 50px;
+    color: var(--rosa);
+    cursor: pointer;
+    transition: var(--transition);
+}
+  
+.menu__boton--oculto{
+    opacity: 0;
+}
+.menu {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    z-index: 100;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+    transform: translateY(calc(-100% - 100px));
+    background-color: var(--blanco);
+    transition: var(--transition);
+}
+
+.menu__visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.menu__lista {
+    list-style: none;
+}
+
+.menu__lista:first-child {
+    border-top: 1px solid #ccc;
+}
+
+.menu__elemento {
+    border-bottom: 1px solid #ccc;
+}
+
+.menu__enlace {
+    display: flex;
+    align-items: center; 
+    padding: 1rem;
+    text-decoration: none;
+    color: var(--negro);
+}
+
+.menu__desplegable {
+    display: none;
+    list-style: none; 
+    opacity: 0;
+    background-color: var(--blanco);
+    transition: var(--transition); 
+
+    @starting-style {
+        display: none;
+        opacity: 0;
+    }
+}
+
+.menuVisible {
+    display: block;
+    opacity: 1;
+}
+
+.menu__desplegable .menu__enlace:first-child {
+    border-top: 1px solid #ccc;
+}
+
+.menu__desplegable .menu__enlace {
+    padding: 1rem 3rem;
+}
+
+.portada {
+    height: calc(100vh - 100px);
+    position: relative; 
+}
+.portada__video{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.portada__frase{
+        justify-content: center;
+    color: var(--blanco);
+    display: flex;
+    align-items: center;
+    font-weight: 500;  
+    text-align: center; 
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 0 0 / 0.3);
+} 
+
+/* -------------------------------------------------------------------------- */
+/*                                    MAIN                                    */
+/* -------------------------------------------------------------------------- */
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    gap: 2rem;
+    width: 100%;
+}
+.bienvenida__titulo{
+    background-color: var(--azul);
+    padding: 1rem 0;
+    font-weight: 600;
+    color: var(--blanco);  
+    padding-left: 1rem;
+    border-radius: 0 1rem 1rem 0;
+}
+.bienvenida{
+    padding: var(--padding);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.bienvenida__logo{
+    height: 100px;
+}

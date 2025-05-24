@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Inicio</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+    <header class="header">
+        <section class="cabecera">
+            <div class="cabecera__logo">
+                <img class="cabecera__img" src="assets/img/logo.png" alt="">
+                <p class="cabecera__nombre">Hospital Luz de Esperanza</p>
+                <i id="botonMenu" class="fa fa-bars menu__boton" onclick="abrirMenu()" aria-hidden="true"></i>
+            </div>
+            <nav id="menu" class="menu">
+                <ul class="menu__lista">
+                    <li class="menu__elemento"><a class="menu__enlace" href="#"
+                            onclick="menuDesplegable(1)">Conócenos</a>
+                        <ul class="menu__desplegable" id="menuConocenos">
+                            <li><a class="menu__enlace" href="">¿Quiénes somos?</a></li>
+                            <li><a class="menu__enlace" href="">Contáctanos</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu__elemento"><a class="menu__enlace" href="">Servicios</a></li>
+                    <li class="menu__elemento"><a class="menu__enlace" onclick="menuDesplegable(2)" href="#">Accesos
+                            rápidos</a>
+                        <ul class="menu__desplegable" id="menuAccesos">
+                            <li><a class="menu__enlace" href="">Resultados</a></li>
+                            <li><a class="menu__enlace" href="">Agendar cita</a></li>
+                            <li><a class="menu__enlace" href="">Cambiar cita</a></li>
+                            <li><a class="menu__enlace" href="">Reembolso</a></li>
+                            <li><a class="menu__enlace" href="">Facuración electrónica</a></li>
+                            <li><a class="menu__enlace" href="">Evalúa nuestros servicios</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu__elemento"><a class="menu__enlace" href="">Iniciar sesión</a></li>
+                </ul>
+            </nav>
+        </section>
+        <div class="portada">
+            <h2 class="portada__frase">"Cuidamos tu salud con dedicación y compromiso, porque tu bienestar es nuestra
+                prioridad."
+            </h2>
+            <video class="portada__video" id="portadaVideo" src="" autoplay loop muted playsinline   oncontextmenu="return false;"></video>
+            <script>
+                function cambiarVideo() {
+                    const video = document.querySelector("#portadaVideo");
+
+                    if (window.innerWidth <= 480) {
+                        video.setAttribute("src", "assets/video/portada__movil.mp4");
+                    } else {
+                        video.setAttribute("src", "assets/video/portada__desktop.mp4");
+                    }
+
+                    video.load();
+                    video.play();
+                }
+
+                window.addEventListener("DOMContentLoaded", cambiarVideo);
+                window.addEventListener("resize", cambiarVideo);
+            </script>
+
+        </div>
+    </header>
+    <main class="main">
+        <section class="bienvenida">
+            <div class="bienvenida__texto">
+                <h2 class="bienvenida__titulo">Bienvenid@s</h2>
+                <p class="bienvenida__texto">En Hospital Luz de Esperanza cuidamos tu salud con excelencia médica y un trato verdaderamente humano. Desde 2005, ofrecemos atención integral y accesible con tecnología de vanguardia y un equipo comprometido con tu bienestar.  Somos un hospital privado con corazón, donde cada paciente es una prioridad y cada vida, una esperanza.</p>
+            </div>
+            <div class="bienvenida__imagen">
+                <img class="bienvenida__logo" src="assets/img/logo.png" alt="">
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+
+    </footer>
+    <script src="https://kit.fontawesome.com/d335561c97.js" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
