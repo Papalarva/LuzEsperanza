@@ -31,8 +31,9 @@ function menuDesplegable(id) {
 
     if (window.innerWidth >= 600) {
         menuAccesos.classList.remove("menu__desplegable--visible");
-    menuConocenos.classList.remove("menu__desplegable--visible");
-        return};
+        menuConocenos.classList.remove("menu__desplegable--visible");
+        return
+    };
     if (id === 1) {
         menuAccesos.classList.remove("menu__desplegable--visible");
         menuConocenos.classList.toggle("menu__desplegable--visible");
@@ -58,8 +59,100 @@ function textoBienvenida() {
     }
 }
 
-window.addEventListener("DOMContentLoaded", cambiarVideo);
-                window.addEventListener("resize", function () {
-                    cambiarVideo();
-                    menuDesplegable(0);
-                });
+
+let splideInstance;
+
+function splideServicios() {
+
+    if (splideInstance) {
+        splideInstance.destroy(true);
+    }
+
+    const colores = ['#731a4b', '#72a69c', '#2192bf', '#025e73'];
+    const serviciosEnlace = document.querySelectorAll('.servicios__enlace');
+    const servicios = document.querySelectorAll('.servicios__tarjeta');
+    servicios.forEach((servicio, index) => {
+        servicio.style.backgroundColor = colores[index % colores.length];
+    });
+    serviciosEnlace.forEach((enlace, index) => {
+        enlace.style.color = colores[index % colores.length];
+    });
+
+    const ancho = window.innerWidth;
+
+    if (ancho <= 599) {
+        splideInstance = new Splide('#image-carousel', {
+            perPage: 1,
+            width: '100vw',
+            type: 'loop',
+            gap: '1rem',
+            arrows: false,
+            pagination: false,
+            drag: true,
+            autoplay: true,
+            interval: 4000,
+            speed: 2000,
+            pauseOnHover: true,
+            pauseOnFocus: true,
+            rewind: true,
+            rewindSpeed: 1000,
+        });
+        splideInstance.mount();
+
+    } else if (ancho >= 600) {
+        servicios.forEach((servicio, index) => {
+        const color = colores[index % colores.length]; // <- Definido correctamente
+
+        servicio.style.backgroundColor = "var(--blanco)";
+        servicio.style.color = color;
+        servicio.style.border = `2px solid ${color}`;
+
+        // Hover
+        servicio.addEventListener("mouseenter", () => {
+            servicio.style.backgroundColor = color;
+            servicio.style.color = "white";
+        });
+
+        servicio.addEventListener("mouseleave", () => {
+            servicio.style.backgroundColor = "var(--blanco)";
+            servicio.style.color = color;
+        });
+    });
+
+        splideInstance = new Splide('#image-carousel', {
+            type: 'slide',
+            width: '100vw',
+            type: 'loop',
+            arrows: false,
+            gap: '2rem',
+            pagination: false,
+            drag: true,
+            autoplay: true,
+            interval: 4000,
+            speed: 2000,
+            pauseOnHover: true,
+            pauseOnFocus: true,
+            rewind: true,
+            rewindSpeed: 1000,
+            grid: {
+                rows: 2,
+                cols: 3,
+                gap: {
+                    row: '2rem',
+                    col: '2rem',
+                },
+            },
+            breakpoints: {
+                1200: {
+                    grid: {
+                        rows: 2,
+                        cols: 2,
+                    },
+                }
+            },
+            pagination: false,
+            arrows: false,
+        });
+        splideInstance.mount(window.splide.Extensions);
+    }
+}

@@ -49,9 +49,9 @@
             <div class="portada__texto">
                 <h3 class="portada__frase">"Cuidamos tu salud con dedicación y compromiso, porque tu bienestar es
                     nuestra prioridad."</h3>
-                <p>Atención médica de calidad, con un enfoque humano.</p>
+                <p class="portada__subfrase">Atención médica de calidad, con un enfoque humano.</p>
             </div>
-            <video class="portada__video" id="portadaVideo" src="" autoplay loop muted playsinline
+            <video class="portada__video" id="portadaVideo" src="" autoplay muted playsinline
                 oncontextmenu="return false;"></video>
             <script>
                 function cambiarVideo() {
@@ -71,14 +71,15 @@
                     cambiarVideo();
                     menuDesplegable(0);
                     textoBienvenida();
+                    splideServicios();
                 });
                 window.addEventListener("resize", function () {
                     cambiarVideo();
                     menuDesplegable(0);
                     textoBienvenida();
+                    splideServicios();
                 });
             </script>
-
         </div>
     </header>
     <main class="main">
@@ -90,24 +91,139 @@
                     trato verdaderamente humano. Desde 2005, ofrecemos atención integral y accesible con tecnología de
                     vanguardia y un equipo comprometido con tu bienestar. Somos un hospital privado con corazón, donde
                     cada paciente es una prioridad y cada vida, una esperanza.</p>
-            </div> 
-                <picture class="bienvenida__imagen">
-                    <!-- Para pantallas grandes (desktop) -->
-                    <source media="(min-width: 1024px)" srcset="assets/img/bienvenida__grande.png">
-
-                    <!-- Para pantallas medianas (tablets) -->
-                    <source media="(min-width: 600px)" srcset="assets/img/bienvenida__mediana.png">
-
-                    <!-- Para pantallas pequeñas (celulares) -->
-                    <img class="bienvenida__logo" src="assets/img/logo.png" alt="Imagen adaptable">
-                </picture> 
+            </div>
+            <picture class="bienvenida__imagen">
+                <source media="(min-width: 1024px)" srcset="assets/img/bienvenida__grande.png">
+                <source media="(min-width: 600px)" srcset="assets/img/bienvenida__mediana.png">
+                <img class="bienvenida__logo" src="assets/img/logo.png" alt="Imagen adaptable">
+            </picture>
         </section>
-
+        <section class="servicios">
+            <h3 class="secciones__subtitulo">Conoce nuestros</h3>
+            <h2 class="secciones__titulo">Servicios</h2>
+            <section id="image-carousel" class="splide" aria-label="Beautiful Images">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <li class="splide__slide servicios__tarjeta">
+                            <i class="servicios__icono fa-solid fa-truck-medical"></i>
+                            <img class="servicios__imagen" src="assets/img/urgenciasEmergencias.jpg" alt="">
+                            <h3>Urgencias y Emergencias</h3>
+                            <p class="servicios__parrafo">Servicio disponible las 24 horas para atender casos críticos como accidentes, infartos,
+                                traumatismos graves o complicaciones médicas repentinas. Equipado con tecnología
+                                avanzada y personal especializado para estabilizar pacientes y derivarlos a las áreas
+                                correspondientes.</p>
+                            <a class="servicios__enlace" href="">Agendar cita</a>
+                        </li>
+                        <li class="splide__slide servicios__tarjeta">
+                            <i class="servicios__icono fa-solid fa-stethoscope"></i>
+                            <img class="servicios__imagen" src="assets/img/cirujiaGeneralEspecialidad.jpg" alt="">
+                            <h3>Cirugía General y Especializada</h3>
+                            <p class="servicios__parrafo">Abarca procedimientos quirúrgicos programados o de emergencia, desde apendicectomías
+                                hasta operaciones cardíacas. Incluye cirugía laparoscópica mínimamente invasiva y
+                                seguimiento postoperatorio para una recuperación segura.</p>
+                            <a class="servicios__enlace" href="">Agendar cita</a>
+                        </li>
+                        <li class="splide__slide servicios__tarjeta">
+                            <i class="servicios__icono fa-solid fa-person-breastfeeding"></i>
+                            <img class="servicios__imagen" src="assets/img/maternidadNeonatologia.jpg" alt="">
+                            <h3>Maternidad y Neonatología</h3>
+                            <p class="servicios__parrafo">Atención integral para embarazos de bajo y alto riesgo, partos naturales, cesáreas y
+                                cuidados posnatales. Incluye unidad de neonatología para recién nacidos prematuros o con
+                                complicaciones, con incubadoras y monitoreo constante.</p>
+                            <a class="servicios__enlace" href="">Agendar cita</a>
+                        </li>
+                        <li class="splide__slide servicios__tarjeta">
+                            <i class="servicios__icono fa-solid fa-baby"></i>
+                            <img class="servicios__imagen" src="assets/img/pediatria.jpg" alt="">
+                            <h3>Pediatría</h3>
+                            <p class="servicios__parrafo">Servicio dedicado a la salud infantil, enfocado en prevención, diagnóstico y tratamiento
+                                de enfermedades en pacientes desde recién nacidos hasta adolescentes. Incluye
+                                vacunación, control de crecimiento y manejo de patologías crónicas.</p>
+                            <a class="servicios__enlace" href="">Agendar cita</a>
+                        </li>
+                        <li class="splide__slide servicios__tarjeta">
+                            <i class="servicios__icono fa-solid fa-virus"></i>
+                            <img class="servicios__imagen" src="assets/img/oncologia.jpg" alt="">
+                            <h3>Oncología</h3>
+                            <p class="servicios__parrafo">Diagnóstico y tratamiento multidisciplinario del cáncer, con terapias como quimioterapia,
+                                radioterapia e inmunoterapia. Ofrece acompañamiento psicológico y programas de
+                                rehabilitación para mejorar la calidad de vida del paciente.</p>
+                            <a class="servicios__enlace" href="">Agendar cita</a>
+                        </li>
+                        <li class="splide__slide servicios__tarjeta">
+                            <i class="servicios__icono fa-solid fa-heart"></i>
+                            <img class="servicios__imagen" src="assets/img/cardiologia.jpg" alt="">
+                            <h3>Cardiología</h3>
+                            <p class="servicios__parrafo">Prevención, evaluación y manejo de enfermedades cardiovasculares. Incluye pruebas como
+                                electrocardiogramas, ecocardiogramas, cateterismos y rehabilitación cardíaca
+                                post-infarto.</p>
+                            <a class="servicios__enlace" href="">Agendar cita</a>
+                        </li>
+                        <li class="splide__slide servicios__tarjeta">
+                            <i class="servicios__icono fa-solid fa-crutch"></i>
+                            <img class="servicios__imagen" src="assets/img/terapiaFisica.jpg" alt="">
+                            <h3>Terapia Física y Rehabilitación</h3>
+                            <p class="servicios__parrafo">Programas personalizados para recuperar movilidad tras cirugías, accidentes o
+                                enfermedades neurológicas. Utiliza técnicas como hidroterapia, electroestimulación y
+                                ejercicios adaptados.</p>
+                            <a class="servicios__enlace" href="">Agendar cita</a>
+                        </li>
+                        <li class="splide__slide servicios__tarjeta">
+                            <i class="servicios__icono fa-solid fa-brain"></i>
+                            <img class="servicios__imagen" src="assets/img/psicologia.jpg" alt="">
+                            <h3>Salud Mental</h3>
+                            <p class="servicios__parrafo">Atención psiquiátrica y psicológica para trastornos como depresión, ansiedad, bipolaridad
+                                o adicciones. Incluye terapia individual, grupal y hospitalización breve en casos de
+                                crisis agudas.</p>
+                            <a class="servicios__enlace" href="">Agendar cita</a>
+                        </li>
+                        <li class="splide__slide servicios__tarjeta">
+                            <i class="servicios__icono fa-solid fa-briefcase-medical"></i>
+                            <img class="servicios__imagen" src="assets/img/medicinaInterna.jpg" alt="">
+                            <h3>Medicina Interna</h3>
+                            <p class="servicios__parrafo">Diagnóstico y tratamiento integral de enfermedades que afectan a órganos internos, como
+                                diabetes, hipertensión, enfermedades respiratorias y gastrointestinales. El servicio
+                                actúa como eje coordinador entre distintas especialidades para un abordaje clínico
+                                completo.</p>
+                            <a class="servicios__enlace" href="">Agendar cita</a>
+                        </li>
+                        <li class="splide__slide servicios__tarjeta">
+                            <i class="servicios__icono fa-solid fa-hospital"></i>
+                            <img class="servicios__imagen" src="assets/img/unidadCuidadosIntensivos.jpg" alt="">
+                            <h3>Unidad de Cuidados Intensivos</h3>
+                            <p class="servicios__parrafo">Área especializada en la atención de pacientes en estado crítico que requieren vigilancia
+                                continua, soporte vital avanzado y monitoreo permanente. Cuenta con equipo médico
+                                multidisciplinario y tecnología de punta para intervenciones inmediatas.</p>
+                            <a class="servicios__enlace" href="">Agendar cita</a>
+                        </li>
+                        <li class="splide__slide servicios__tarjeta">
+                            <i class="servicios__icono fa-solid fa-venus-mars"></i>
+                            <img class="servicios__imagen" src="assets/img/ginecologiaSaludFemenina.jpeg" alt="">
+                            <h3>Ginecología y Salud Femenina</h3>
+                            <p class="servicios__parrafo">Atención especializada en salud reproductiva y ginecológica. Incluye control prenatal,
+                                detección de cáncer ginecológico, tratamientos hormonales, planificación familiar y
+                                manejo de enfermedades como endometriosis o síndrome de ovario poliquístico.</p>
+                            <a class="servicios__enlace" href="">Agendar cita</a>
+                        </li>
+                        <li class="splide__slide servicios__tarjeta">
+                            <i class="servicios__icono fa-solid fa-x-ray"></i>
+                            <img class="servicios__imagen" src="assets/img/imagenologiaDiagnostico.jpg" alt="">
+                            <h3>Imagenología y Diagnóstico por Imágenes</h3>
+                            <p class="servicios__parrafo">Servicio equipado con tecnología como rayos X, ultrasonido, tomografía computarizada (CT)
+                                y resonancia magnética (RM). Facilita diagnósticos precisos y oportunos para diversas
+                                condiciones médicas, apoyando a todas las especialidades clínicas.</p>
+                            <a class="servicios__enlace" href="">Agendar cita</a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
     </main>
     <footer class="footer">
 
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-grid@0.4.1/dist/js/splide-extension-grid.min.js"></script>
     <script src="https://kit.fontawesome.com/d335561c97.js" crossorigin="anonymous"></script>
     <script src="js/script.js"></script>
 

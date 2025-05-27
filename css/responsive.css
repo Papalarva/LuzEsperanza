@@ -1,8 +1,37 @@
-@media (min-width: 600px)   {
-    .cabecera{
-        justify-content: space-between; 
-        padding: 0 1rem; 
+ 
+@media (min-width: 600px) {
+    body {font-size: 15px; }  
+    /* ---------------------------------- MAIN ---------------------------------- */
+    .main {width: 80%;}
+    /* ------------------------------- BIENVENIDOS ------------------------------ */
+    .bienvenida__logo{ height: 15rem;}   
+    .bienvenida__imagen{padding: 0;} 
+    /* -------------------------------- SERVICIOS ------------------------------- */
+    .servicios__parrafo, .servicios__imagen, .servicios__enlace{display: none;}
+    .servicios__icono{font-size: 100px;}
+    .servicios__tarjeta{ 
+        height: calc((80vw - 4rem)/4);
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-color: var(--blanco);
+        position: relative;
+        z-index: 1;
+        transition: var(--transition);
+    }  
+
+}
+
+ 
+@media (min-width: 768px) {
+    body {font-size: 16px;}
+    /* ---------------------------------- MENU ---------------------------------- */
+    .cabecera {
+        padding: 0 var(--padding);
+        justify-content: space-between;
     }
+    .cabecera__nombre, #botonMenu{display: none;}
+    .cabecera__logo {width: min-content;}
     .menu {
         width: auto;
         height: auto;
@@ -11,47 +40,26 @@
         opacity: 1;
         position: relative;
     }
-    .menu__lista{
-        display: flex; 
-    }
-    .menu__lista:first-child {
-        border-top: none;
-    }
-
-    .menu__elemento{
-        border: none;
-        padding: 1.25rem 1rem;
-    }
-
-    .cabecera__nombre, #botonMenu{
-        display: none;
-    }
-    .cabecera__logo {
-        width: min-content;
-    }
+    .menu__lista {display: flex;}
+    .menu__elemento, .menu__lista:first-child, .menu__desplegable .menu__enlace:first-child  {border: none;}
+    .menu__elemento {padding: calc(var(--padding) * 1.25) var(--padding);}
     .menu__elemento:hover  > .menu__desplegable, .menu__desplegable:hover{
         display: block;
         opacity: 1;
-        z-index: 10;
+        z-index: 100;
         position: absolute;
         top: 100%; 
     }  
-    .menu__desplegable .menu__enlace:first-child {
-        border: none;
-    }
-    .menu__desplegable .menu__enlace {
-        padding: 1rem ;
-    }
-    .menu__desplegable:last-child {
-        border-radius: 0 0 1rem 1rem;
-    }
-    .menu__enlace{
-        position: relative;font-weight: 600;   
+    .menu__desplegable .menu__enlace {padding: var(--padding); }
+    .menu__desplegable:last-child {border-radius: 0 0 1rem 1rem;}
+    .menu__enlace { 
+        position: relative;
+        font-weight: 500; 
     }
     .menu__enlace::after {
         content: '';  
         position: absolute;
-        left: auto; right: auto;
+        left: 1rem;  
         bottom: 0.5rem;
         width: 0;
         height: 0.2rem;
@@ -59,49 +67,55 @@
         background-color: var(--azul);
         transition: var(--transition);
     }
-    .menu__enlace:hover::after { 
-        width: 90%
-    }
+    .menu__enlace:hover::after { width: 80%;}
     .menu__enlace:hover {
         background-color: transparent;
         color: var(--azul);
     } 
-    .bienvenida__logo{
-        height: 350px;
-    }
-    .main{
-        padding: 2rem 10vw;
-    }
-    .bienvenida__imagen{ 
-        padding: 0;
-    }
+
 }
-@media (min-width: 993px) {
-    .cabecera__nombre {
-        display: block;
-        width: max-content;
+
+ 
+@media (min-width: 1024px) {
+    body {font-size: 17px;} 
+    /* ---------------------------------- MAIN ---------------------------------- */
+    .main {width: 70%;}
+    /* ------------------------------- BIENVENIDA ------------------------------- */
+    .bienvenida{flex-direction: row;} 
+    .bienvenida__imagen{
+        padding: 0; 
+        background-color: var(--azulOscuro);
+        border-radius: 0 1rem 1rem 0;
+        height: 100%;
+        display: flex;
     } 
-    .portada__frase{
-        width: 700px;
+    .bienvenida__logo{
+        width: 100%; 
+        height: auto;  
     }
-    .bienvenida{
-        flex-direction: row;
-    }
-    .bienvenida__imagen{ 
-        padding: 0;
-    }  
-
 }
-@media (min-width: 1201px) {
-    .portada__frase{
-        font-size: 3rem;
-        width: 100%;
-    }
-    .portada { 
-        height: calc(80vh); 
-    }
-    .main{
-        padding: 2rem 15vw;
-    }
 
+ 
+@media (min-width: 1280px) {
+    body {font-size: 18px;
+        /* max-width: 1200px; */ 
+    } 
+    /* ---------------------------------- MENU ---------------------------------- */
+    .cabecera__nombre {
+        margin-left: 1rem;
+        display: block;
+        width: max-content; 
+        font-weight: 700;
+    }
+    /* --------------------------------- PORTADA -------------------------------- */
+    .portada__texto{gap: 5rem;}
+    .portada__frase{font-size: 3rem;}
+    .portada__subfrase{font-size: 2rem;}
+    .portada__frase, .portada__subfrase{max-width: 1000px;}
+    /* ---------------------------------- MAIN ---------------------------------- */
+    .main {width: 70%;}
+    .secciones__titulo{ font-size: 2.5rem;}
+    .secciones__subtitulo{font-size: 1.25rem;}
+    .servicios__tarjeta{ 
+        height: calc((70vw - 3rem)/4);}
 }
