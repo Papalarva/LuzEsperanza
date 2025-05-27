@@ -71,6 +71,7 @@ function splideServicios() {
     const colores = ['#731a4b', '#72a69c', '#2192bf', '#025e73'];
     const serviciosEnlace = document.querySelectorAll('.servicios__enlace');
     const servicios = document.querySelectorAll('.servicios__tarjeta');
+
     servicios.forEach((servicio, index) => {
         servicio.style.backgroundColor = colores[index % colores.length];
     });
@@ -81,6 +82,9 @@ function splideServicios() {
     const ancho = window.innerWidth;
 
     if (ancho <= 599) {
+        document.querySelectorAll('.servicios__icono').forEach(icono => {
+            icono.style.display = "none";
+        });
         splideInstance = new Splide('#image-carousel', {
             perPage: 1,
             width: '100vw',
@@ -100,24 +104,47 @@ function splideServicios() {
         splideInstance.mount();
 
     } else if (ancho >= 600) {
-        servicios.forEach((servicio, index) => {
-        const color = colores[index % colores.length]; // <- Definido correctamente
-
-        servicio.style.backgroundColor = "var(--blanco)";
-        servicio.style.color = color;
-        servicio.style.border = `2px solid ${color}`;
-
-        // Hover
-        servicio.addEventListener("mouseenter", () => {
-            servicio.style.backgroundColor = color;
-            servicio.style.color = "white";
+        document.querySelectorAll('.servicios__icono').forEach(icono => {
+            icono.style.display = "block";
         });
+        const body = document.body;
 
-        servicio.addEventListener("mouseleave", () => {
+        servicios.forEach((servicio, index) => {
+            const color = colores[index % colores.length];
+            const id = index + 1;  
             servicio.style.backgroundColor = "var(--blanco)";
             servicio.style.color = color;
+            servicio.style.border = `2px solid ${color}`;
+ 
+            servicio.addEventListener("mouseenter", () => {
+                servicio.style.backgroundColor = color;
+                servicio.style.color = "white";
+            });
+
+            servicio.addEventListener("mouseleave", () => {
+                servicio.style.backgroundColor = "var(--blanco)";
+                servicio.style.color = color;
+            });
+ 
+            servicio.addEventListener("click", function () {
+                if (window.innerWidth >= 600) {
+                    const modal = document.getElementById("modalServicio" + id);
+                    if (modal) modal.showModal();
+                    body.style.overflow = "hidden";
+                }
+            });
+
+            const cerrarBtn = document.getElementById("cerrarModal" + id);
+            if (cerrarBtn) {
+                cerrarBtn.addEventListener("click", function () {
+                    const modal = document.getElementById("modalServicio" + id);
+                    if (modal) modal.close();
+                    body.style.overflowY = "auto";
+                });
+            }
+         
         });
-    });
+
 
         splideInstance = new Splide('#image-carousel', {
             type: 'slide',

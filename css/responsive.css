@@ -8,9 +8,10 @@
     .bienvenida__imagen{padding: 0;} 
     /* -------------------------------- SERVICIOS ------------------------------- */
     .servicios__parrafo, .servicios__imagen, .servicios__enlace{display: none;}
-    .servicios__icono{font-size: 100px;}
+    .servicios__icono{font-size: 100px; }
     .servicios__tarjeta{ 
         height: calc((80vw - 4rem)/4);
+        min-height: 200px;
         justify-content: center;
         align-items: center;
         text-align: center;
@@ -18,6 +19,7 @@
         position: relative;
         z-index: 1;
         transition: var(--transition);
+        cursor: pointer;
     }  
 
 }
