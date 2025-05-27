@@ -56,15 +56,13 @@
             <script>
                 function cambiarVideo() {
                     const video = document.querySelector("#portadaVideo");
+                    const nuevoSrc = window.innerWidth <= 480
+                        ? "assets/video/portada__movil.mp4"
+                        : "assets/video/portada__desktop.mp4";
 
-                    if (window.innerWidth <= 480) {
-                        video.setAttribute("src", "assets/video/portada__movil.mp4");
-                    } else {
-                        video.setAttribute("src", "assets/video/portada__desktop.mp4");
+                    if (video.getAttribute("src") !== nuevoSrc) {
+                        video.setAttribute("src", nuevoSrc);
                     }
-
-                    video.load();
-                    video.play();
                 }
 
                 window.addEventListener("DOMContentLoaded", function () {
