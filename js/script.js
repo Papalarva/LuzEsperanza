@@ -29,7 +29,7 @@ function menuDesplegable(id) {
     const menuConocenos = document.getElementById("menuConocenos");
     const menuAccesos = document.getElementById("menuAccesos");
 
-    if (window.innerWidth >= 768) {
+    if (window.innerWidth >= 600) {
         menuAccesos.classList.remove("menu__desplegable--visible");
     menuConocenos.classList.remove("menu__desplegable--visible");
         return};
@@ -43,3 +43,23 @@ function menuDesplegable(id) {
 
     }
 }
+
+function textoBienvenida() {
+    const bienvenidaTitulo = document.getElementById("bienvenidaTitulo");
+    const bienvenidaSubtitulo = document.getElementById("bienvenidaSubtitulo");
+
+    if (window.innerWidth <= 480) {
+        bienvenidaTitulo.textContent = "Bienvenid@s";
+        bienvenidaSubtitulo.style.display = "none";
+    } else {
+        bienvenidaSubtitulo.textContent = "Bienvenidos al";
+        bienvenidaTitulo.textContent = "Hospital Luz de Esperanza";
+        bienvenidaSubtitulo.style.display = "block";
+    }
+}
+
+window.addEventListener("DOMContentLoaded", cambiarVideo);
+                window.addEventListener("resize", function () {
+                    cambiarVideo();
+                    menuDesplegable(0);
+                });

@@ -1,4 +1,4 @@
-@media (min-width: 768px)   {
+@media (min-width: 600px)   {
     .cabecera{
         justify-content: space-between; 
         padding: 0 1rem; 
@@ -65,8 +65,16 @@
     .menu__enlace:hover {
         background-color: transparent;
         color: var(--azul);
-        
     } 
+    .bienvenida__logo{
+        height: 350px;
+    }
+    .main{
+        padding: 2rem 10vw;
+    }
+    .bienvenida__imagen{ 
+        padding: 0;
+    }
 }
 @media (min-width: 993px) {
     .cabecera__nombre {
@@ -76,6 +84,12 @@
     .portada__frase{
         width: 700px;
     }
+    .bienvenida{
+        flex-direction: row;
+    }
+    .bienvenida__imagen{ 
+        padding: 0;
+    }  
 
 }
 @media (min-width: 1201px) {
@@ -84,7 +98,10 @@
         width: 100%;
     }
     .portada { 
-         height: calc(80vh); 
+        height: calc(80vh); 
+    }
+    .main{
+        padding: 2rem 15vw;
     }
 
 }

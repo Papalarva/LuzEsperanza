@@ -12,6 +12,7 @@
   --azul: #2192bf;
   --azulOscuro: #025e73;
   --verde: #72a69c; 
+      --crema: #f2d0a7;
   --blanco: #fff;
   --negro: #000;
   --padding: 1rem;
@@ -158,30 +159,44 @@ body {
 /* -------------------------------------------------------------------------- */
 .main {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; 
+    flex-direction: column; 
     gap: 2rem;
     width: 100%;
+    padding: 2rem 1rem ;
+} 
+.bienvenida{ 
+    width: 100%;  
+    border-radius: 1rem;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+    position: relative;
+    background-color: var(--azul);
+    color: var(--blanco);
 }
 .bienvenida__titulo{
-    background-color: var(--azul);
-    padding: 1rem 0;
-    font-weight: 600;
-    color: var(--blanco);  
-    padding-left: 1rem;
-    border-radius: 0 1rem 1rem 0;
+    font-size: 2rem;
 }
-.bienvenida{
-    padding: var(--padding);
-    width: 100%;
+.bienvenida__subtitulo{
+    color: #f7f7f7;
+}
+.bienvenida__texto, .bienvenida{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     gap: 1rem;
+}  
+.bienvenida__imagen{
+    text-align: center;
 }
 
-.bienvenida__logo{
+.bienvenida__logo{ 
     height: 100px;
 }
+
+.bienvenida__texto {
+    padding: 2rem 1rem 1rem 1rem;
+}
+
+.bienvenida__imagen {
+    padding: 0 0 1rem 0;
+}
+
+

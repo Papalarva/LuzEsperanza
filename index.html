@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de Inicio</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
+
 </head>
 
 <body>
@@ -44,11 +46,13 @@
             </nav>
         </section>
         <div class="portada">
-            <div class="portada__texto"> 
-                <h3 class="portada__frase">"Cuidamos tu salud con dedicación y compromiso, porque tu bienestar es nuestra prioridad."</h3>
+            <div class="portada__texto">
+                <h3 class="portada__frase">"Cuidamos tu salud con dedicación y compromiso, porque tu bienestar es
+                    nuestra prioridad."</h3>
                 <p>Atención médica de calidad, con un enfoque humano.</p>
             </div>
-            <video class="portada__video" id="portadaVideo" src="" autoplay loop muted playsinline   oncontextmenu="return false;"></video>
+            <video class="portada__video" id="portadaVideo" src="" autoplay loop muted playsinline
+                oncontextmenu="return false;"></video>
             <script>
                 function cambiarVideo() {
                     const video = document.querySelector("#portadaVideo");
@@ -62,11 +66,16 @@
                     video.load();
                     video.play();
                 }
-                
-                window.addEventListener("DOMContentLoaded", cambiarVideo);
+
+                window.addEventListener("DOMContentLoaded", function () {
+                    cambiarVideo();
+                    menuDesplegable(0);
+                    textoBienvenida();
+                });
                 window.addEventListener("resize", function () {
                     cambiarVideo();
                     menuDesplegable(0);
+                    textoBienvenida();
                 });
             </script>
 
@@ -75,19 +84,33 @@
     <main class="main">
         <section class="bienvenida">
             <div class="bienvenida__texto">
-                <h2 class="bienvenida__titulo">Bienvenid@s</h2>
-                <p class="bienvenida__texto">En Hospital Luz de Esperanza cuidamos tu salud con excelencia médica y un trato verdaderamente humano. Desde 2005, ofrecemos atención integral y accesible con tecnología de vanguardia y un equipo comprometido con tu bienestar.  Somos un hospital privado con corazón, donde cada paciente es una prioridad y cada vida, una esperanza.</p>
-            </div>
-            <div class="bienvenida__imagen">
-                <img class="bienvenida__logo" src="assets/img/logo.png" alt="">
-            </div>
+                <h3 class="bienvenida__subtitulo" id="bienvenidaSubtitulo">Bienvenidos al</h3>
+                <h2 class="bienvenida__titulo" id="bienvenidaTitulo">Bienvenid@s</h2>
+                <p class="bienvenida__parrafo">En Hospital Luz de Esperanza cuidamos tu salud con excelencia médica y un
+                    trato verdaderamente humano. Desde 2005, ofrecemos atención integral y accesible con tecnología de
+                    vanguardia y un equipo comprometido con tu bienestar. Somos un hospital privado con corazón, donde
+                    cada paciente es una prioridad y cada vida, una esperanza.</p>
+            </div> 
+                <picture class="bienvenida__imagen">
+                    <!-- Para pantallas grandes (desktop) -->
+                    <source media="(min-width: 1024px)" srcset="assets/img/bienvenida__grande.png">
+
+                    <!-- Para pantallas medianas (tablets) -->
+                    <source media="(min-width: 600px)" srcset="assets/img/bienvenida__mediana.png">
+
+                    <!-- Para pantallas pequeñas (celulares) -->
+                    <img class="bienvenida__logo" src="assets/img/logo.png" alt="Imagen adaptable">
+                </picture> 
         </section>
+
     </main>
     <footer class="footer">
 
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
     <script src="https://kit.fontawesome.com/d335561c97.js" crossorigin="anonymous"></script>
     <script src="js/script.js"></script>
+
 </body>
 
 </html>
