@@ -111,11 +111,11 @@ function splideServicios() {
 
         servicios.forEach((servicio, index) => {
             const color = colores[index % colores.length];
-            const id = index + 1;  
+            const id = index + 1;
             servicio.style.backgroundColor = "var(--blanco)";
             servicio.style.color = color;
             servicio.style.border = `2px solid ${color}`;
- 
+
             servicio.addEventListener("mouseenter", () => {
                 servicio.style.backgroundColor = color;
                 servicio.style.color = "white";
@@ -125,7 +125,7 @@ function splideServicios() {
                 servicio.style.backgroundColor = "var(--blanco)";
                 servicio.style.color = color;
             });
- 
+
             servicio.addEventListener("click", function () {
                 if (window.innerWidth >= 600) {
                     const modal = document.getElementById("modalServicio" + id);
@@ -142,9 +142,7 @@ function splideServicios() {
                     body.style.overflowY = "auto";
                 });
             }
-         
         });
-
 
         splideInstance = new Splide('#carruselServicios', {
             type: 'slide',
@@ -188,8 +186,8 @@ function splideInstalaciones() {
     var splide = new Splide('#carruselInstalaciones', {
         pagination: false,
         type: 'slide',
-            width: '100vw',
-            type: 'loop',
+        width: '100vw',
+        type: 'loop',
         gap: '2rem',
         pagination: false,
         drag: true,
@@ -199,40 +197,28 @@ function splideInstalaciones() {
         pauseOnHover: true,
         pauseOnFocus: true,
         rewind: true,
-        rewindSpeed: 1000, 
+        rewindSpeed: 5000,
         classes: {
-		arrows: 'splide__arrows instalaciones__arrow',
-		arrow : 'splide__arrow instalaciones__arrow', 
-  },
+            arrows: 'splide__arrows instalaciones__arrow',
+            arrow: 'splide__arrow instalaciones__arrow',
+        },
     });
-
-
     var thumbnails = document.getElementsByClassName('thumbnail');
     var current;
-
-
     for (var i = 0; i < thumbnails.length; i++) {
         initThumbnail(thumbnails[i], i);
     }
-
-
     function initThumbnail(thumbnail, index) {
         thumbnail.addEventListener('click', function () {
             splide.go(index);
         });
     }
-
-
     splide.on('mounted move', function () {
         var thumbnail = thumbnails[splide.index];
-
-
         if (thumbnail) {
             if (current) {
                 current.classList.remove('is-active');
             }
-
-
             thumbnail.classList.add('is-active');
             current = thumbnail;
         }
@@ -240,4 +226,33 @@ function splideInstalaciones() {
 
 
     splide.mount();
+}
+
+function contactoEnviar(event) {
+    event.preventDefault();
+    let enviar = true;
+
+    let inputs = document.querySelectorAll(".contacto__input");
+
+    inputs.forEach(input => {
+        if (input.value.trim() === "") {
+            document.getElementById(input.id + "Error").textContent = "Este campo no puede estar vacío";
+            enviar = false;
+        } else {
+            document.getElementById(input.id + "Error").textContent = "";
+        }
+    });
+
+    if (enviar) {
+        let modal = document.getElementById("contactoModal");
+        modal.showModal(); 
+        modal.style.display = "flex"; 
+
+        const modalClose = document.getElementById("contactoModalClose");
+        modalClose.addEventListener("click", function () {
+            modal.close();
+            event.target.submit();  
+        });
+
+    }
 }

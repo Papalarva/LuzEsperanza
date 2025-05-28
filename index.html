@@ -371,7 +371,7 @@
             <h3 class="secciones__subtitulo">Conoce nuestras</h3>
             <h2 class="secciones__titulo">Instalaciones</h2>
             <section id="carruselInstalaciones" class="splide" aria-label="My Awesome Gallery">
-                
+
                 <div class="splide__track">
                     <ul class="splide__list">
                         <li class="splide__slide">
@@ -415,6 +415,51 @@
                     <img src="assets/img/instalacionSeis.jpg" alt="">
                 </li>
             </ul>
+        </section>
+        <section>
+            <h3 class="secciones__subtitulo">No dudes en </h3>
+            <h2 class="secciones__titulo">Contáctanos</h2>
+            <form method="" action="" class="contacto__formulario" onsubmit="contactoEnviar(event)">
+                <label for="nombre" class="contacto__label">
+                    <input type="text" name="nombre" id="nombre" placeholder="" class="contacto__input">
+                    <span class="contacto__placeholder">Nombre Completo</span>
+                    <span class="contacto__error" id="nombreError"></span>
+                </label>
+                <label for="email" class="contacto__label">
+                    <input type="email" name="email" id="email" placeholder="" class="contacto__input">
+                    <span class="contacto__placeholder">Correo</span>
+                    <span class="contacto__error" id="emailError"></span>
+                </label>
+                <label for="telefono" class="contacto__label">
+                    <input type="number" name="telefono" id="telefono" placeholder="" class="contacto__input">
+                    <span class="contacto__placeholder">Telefóno</span>
+                    <span class="contacto__error" id="telefonoError"></span>
+                </label>
+                <label for="asunto" class="contacto__label">
+                    <input type="text" name="asunto" id="asunto" placeholder="" class="contacto__input">
+                    <span class="contacto__placeholder">Asunto</span>
+                    <span class="contacto__error" id="asuntoError"></span>
+                </label>
+                <label for="mensaje" class="contacto__label">
+                    <textarea name="mensaje" id="mensaje" placeholder=""
+                        class="contacto__input contacto__textarea"></textarea>
+                    <span class="contacto__placeholder">Mensaje</span>
+                    <span class="contacto__error" id="mensajeError"></span>
+                </label>
+                <div class="contacto__botones">
+                    <input class="contacto__boton" type="reset" value="Borrar">
+                    <input class="contacto__boton" type="submit" value="Enviar">
+                </div>
+                <dialog id="contactoModal" class="contacto__modal">
+                    <h2>Registro exitoso</h2>
+                    <i class="fa-solid fa-circle-check contacto__icono"></i>
+                    <p>Se enviaron correctamente los datos</p>
+                    <button class="contacto__boton" id="contactoModalClose">Cerrrar modal</button>
+                </dialog> 
+            </form>
+        </section>
+        <section>
+            
         </section>
     </main>
     <footer class="footer">
