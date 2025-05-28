@@ -70,12 +70,14 @@
                     menuDesplegable(0);
                     textoBienvenida();
                     splideServicios();
+                    splideInstalaciones();
                 });
                 window.addEventListener("resize", function () {
                     cambiarVideo();
                     menuDesplegable(0);
                     textoBienvenida();
                     splideServicios();
+                    splideInstalaciones();
                 });
             </script>
         </div>
@@ -99,7 +101,7 @@
         <section class="servicios">
             <h3 class="secciones__subtitulo">Conoce nuestros</h3>
             <h2 class="secciones__titulo">Servicios</h2>
-            <section id="image-carousel" class="splide" aria-label="Beautiful Images">
+            <section id="carruselServicios" class="splide" aria-label="Beautiful Images">
                 <div class="splide__track">
                     <ul class="splide__list">
                         <li class="splide__slide servicios__tarjeta">
@@ -360,6 +362,60 @@
                     </ul>
                 </div>
             </section>
+        </section>
+        <section>
+            <h3 class="secciones__subtitulo">Encuentra a tu</h3>
+            <h2 class="secciones__titulo">Médico</h2>
+        </section>
+        <section>
+            <h3 class="secciones__subtitulo">Conoce nuestras</h3>
+            <h2 class="secciones__titulo">Instalaciones</h2>
+            <section id="carruselInstalaciones" class="splide" aria-label="My Awesome Gallery">
+                
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <li class="splide__slide">
+                            <img class="instalaciones__imagen" src="assets/img/instalacionUno.jpg" alt="">
+                        </li>
+                        <li class="splide__slide">
+                            <img class="instalaciones__imagen" src="assets/img/instalacionDos.jpg" alt="">
+                        </li>
+                        <li class="splide__slide">
+                            <img class="instalaciones__imagen" src="assets/img/instalacionTres.jpg" alt="">
+                        </li>
+                        <li class="splide__slide">
+                            <img class="instalaciones__imagen" src="assets/img/instalacionCuatro.jpg" alt="">
+                        </li>
+                        <li class="splide__slide">
+                            <img class="instalaciones__imagen" src="assets/img/instalacionCinco.jpg" alt="">
+                        </li>
+                        <li class="splide__slide">
+                            <img class="instalaciones__imagen" src="assets/img/instalacionSeis.jpg" alt="">
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <ul id="thumbnails" class="thumbnails instalaciones__miniatura">
+                <li class="thumbnail instalaciones__mini">
+                    <img src="assets/img/instalacionUno.jpg" alt="">
+                </li>
+                <li class="thumbnail instalaciones__mini">
+                    <img src="assets/img/instalacionDos.jpg" alt="">
+                </li>
+                <li class="thumbnail instalaciones__mini">
+                    <img src="assets/img/instalacionTres.jpg" alt="">
+                </li>
+                <li class="thumbnail instalaciones__mini">
+                    <img src="assets/img/instalacionCuatro.jpg" alt="">
+                </li>
+                <li class="thumbnail instalaciones__mini">
+                    <img src="assets/img/instalacionCinco.jpg" alt="">
+                </li>
+                <li class="thumbnail instalaciones__mini">
+                    <img src="assets/img/instalacionSeis.jpg" alt="">
+                </li>
+            </ul>
+        </section>
     </main>
     <footer class="footer">
 

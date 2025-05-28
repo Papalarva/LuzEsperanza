@@ -85,7 +85,7 @@ function splideServicios() {
         document.querySelectorAll('.servicios__icono').forEach(icono => {
             icono.style.display = "none";
         });
-        splideInstance = new Splide('#image-carousel', {
+        splideInstance = new Splide('#carruselServicios', {
             perPage: 1,
             width: '100vw',
             type: 'loop',
@@ -146,7 +146,7 @@ function splideServicios() {
         });
 
 
-        splideInstance = new Splide('#image-carousel', {
+        splideInstance = new Splide('#carruselServicios', {
             type: 'slide',
             width: '100vw',
             type: 'loop',
@@ -182,4 +182,62 @@ function splideServicios() {
         });
         splideInstance.mount(window.splide.Extensions);
     }
+}
+
+function splideInstalaciones() {
+    var splide = new Splide('#carruselInstalaciones', {
+        pagination: false,
+        type: 'slide',
+            width: '100vw',
+            type: 'loop',
+        gap: '2rem',
+        pagination: false,
+        drag: true,
+        autoplay: true,
+        interval: 4000,
+        speed: 2000,
+        pauseOnHover: true,
+        pauseOnFocus: true,
+        rewind: true,
+        rewindSpeed: 1000, 
+        classes: {
+		arrows: 'splide__arrows instalaciones__arrow',
+		arrow : 'splide__arrow instalaciones__arrow', 
+  },
+    });
+
+
+    var thumbnails = document.getElementsByClassName('thumbnail');
+    var current;
+
+
+    for (var i = 0; i < thumbnails.length; i++) {
+        initThumbnail(thumbnails[i], i);
+    }
+
+
+    function initThumbnail(thumbnail, index) {
+        thumbnail.addEventListener('click', function () {
+            splide.go(index);
+        });
+    }
+
+
+    splide.on('mounted move', function () {
+        var thumbnail = thumbnails[splide.index];
+
+
+        if (thumbnail) {
+            if (current) {
+                current.classList.remove('is-active');
+            }
+
+
+            thumbnail.classList.add('is-active');
+            current = thumbnail;
+        }
+    });
+
+
+    splide.mount();
 }
