@@ -1,0 +1,22 @@
+/* -------------------------------------------------------------------------- */
+/*                                  NOSOTROS                                  */
+/* -------------------------------------------------------------------------- */
+.nosotros{
+    margin: auto;
+    margin-top: calc(50px + 2*var(--padding));
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 90%;  
+}
+.nosotros__introducción .bienvenida__imagen {
+    display: none;
+}
+.nosotros__introducción .bienvenida__texto, .nosotros__introducción .bienvenida__imagen {
+    flex: 1;
+}
+
+.nosotros__contenido{
+    border-left: 2px solid var(--rosa);
+    padding-left: 1rem;
+}

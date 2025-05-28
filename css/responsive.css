@@ -23,6 +23,15 @@
     }  
     /* ------------------------------ INSTALACIONES ----------------------------- */
     .instalaciones__miniatura{display: flex;}
+    /* -------------------------------------------------------------------------- */
+    /*                                  NOSOTROS                                  */
+    /* -------------------------------------------------------------------------- */
+    .nosotros__introducción .bienvenida__texto, .nosotros__introducción .bienvenida__imagen {
+    flex: 1; display: block;}
+     .nosotros__introducción .bienvenida__imagen{
+        display: flex;
+
+     }
 
 }
 
@@ -78,6 +87,7 @@
     } 
     /* ------------------------------ INSTALACIONES ----------------------------- */
     .instalaciones__imagen{height: 400px;}
+    
 }
 
  
@@ -104,6 +114,9 @@
         gap: 2rem;      
     }
     .contacto, .ubicacion {flex: 1; }
+    /* -------------------------------- NOSOTROS -------------------------------- */
+    
+     .bienvenida__logo{width: 100%; height: auto;}
 }
 
  
@@ -124,7 +137,7 @@
     .portada__subfrase{font-size: 2rem;}
     .portada__frase, .portada__subfrase{max-width: 1000px;}
     /* ---------------------------------- MAIN ---------------------------------- */
-    .main {width: 70%;}
+    .main, .nosotros {width: 70%;}
     .secciones__titulo{ font-size: 2.5rem;}
     .secciones__subtitulo{font-size: 1.25rem;}
     .servicios__tarjeta{ 

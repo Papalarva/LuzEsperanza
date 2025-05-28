@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros | Hospital Luz de Esperanza</title>
+    <meta name="description"
+        content="Conoce la misión, visión, valores y compromiso de Hospital Luz de Esperanza, un hospital con atención médica humana y tecnología avanzada.">
+    <meta name="keywords"
+        content="Hospital Luz de Esperanza, hospital Ciudad Juárez, atención médica, salud, diagnóstico, misión, visión, valores, tecnología médica">
+    <meta name="author" content="Hospital Luz de Esperanza">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#2192bf">
+    <link rel="icon" href="../assets/img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/pages.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+
+<body>
+    <header class="header">
+        <section class="cabecera">
+            <div class="cabecera__logo">
+                <img class="cabecera__img" src="../assets/img/logo.png" alt="Logo de Hospital Luz de Esperanza">
+                <p class="cabecera__nombre">Hospital Luz de Esperanza</p>
+                <i id="botonMenu" class="fa fa-bars menu__boton" onclick="abrirMenu()" aria-hidden="true"></i>
+            </div>
+            <nav id="menu" class="menu">
+                <ul class="menu__lista">
+                    <li class="menu__elemento"><a class="menu__enlace" href="#"
+                            onclick="menuDesplegable(1)">Conócenos</a>
+                        <ul class="menu__desplegable" id="menuConocenos">
+                            <li><a class="menu__enlace" href="pages/nosotros.html">¿Quiénes somos?</a></li>
+                            <li><a class="menu__enlace" href="#contacto">Contáctanos</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu__elemento"><a class="menu__enlace" href="">Servicios</a></li>
+                    <li class="menu__elemento"><a class="menu__enlace" onclick="menuDesplegable(2)" href="#">Accesos
+                            rápidos</a>
+                        <ul class="menu__desplegable" id="menuAccesos">
+                            <li><a class="menu__enlace" href="">Resultados</a></li>
+                            <li><a class="menu__enlace" href="">Agendar cita</a></li>
+                            <li><a class="menu__enlace" href="">Cambiar cita</a></li>
+                            <li><a class="menu__enlace" href="">Reembolso</a></li>
+                            <li><a class="menu__enlace" href="">Facuración electrónica</a></li>
+                            <li><a class="menu__enlace" href="">Evalúa nuestros servicios</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu__elemento"><a class="menu__enlace" href="">Iniciar sesión</a></li>
+                </ul>
+            </nav>
+        </section>
+    </header>
+    <main class="main">
+        <section class="nosotros">
+            <h2 class="secciones__titulo">Nosotros</h2>
+            <section class="bienvenida nosotros__introducción">
+                <div class="bienvenida__texto">
+                    <p class="bienvenida__parrafo">Hospital Luz de Esperanza forma parte de la comunidad juarense desde
+                        su fundación, ofreciendo atención
+                        médica integral con un enfoque cálido, accesible y de calidad. Contamos con una gama de
+                        servicios
+                        hospitalarios y diagnósticos que nos han permitido ganar la confianza de pacientes en Ciudad
+                        Juárez.
+                        Nuestra presencia en la región fronteriza se respalda con personal médico altamente capacitado,
+                        tecnología de vanguardia y un firme compromiso con el bienestar físico, emocional y social de
+                        cada
+                        persona que atendemos.</p>
+                </div>
+                <picture class="bienvenida__imagen">
+                    <source media="(min-width: 1024px)" srcset="../assets/img/bienvenida__grande.png">
+                    <source media="(min-width: 600px)" srcset="../assets/img/bienvenida__mediana.png">
+                    <source media="(max-width: 599px)" srcset="../assets/img/logo.png">
+                    <img class="bienvenida__logo" src="../assets/img/logo.png" alt="Imagen adaptable">
+                </picture>
+            </section>
+
+            <h3 class="nosotros__subtitulo">Nuestro Propósito</h3>
+            <p class="nosotros__contenido">
+                Crear un acceso real a servicios médicos de calidad para todas las personas, con sensibilidad,
+                tecnología de
+                vanguardia y atención oportuna.
+            </p>
+
+            <h3 class="nosotros__subtitulo">Misión</h3>
+            <p class="nosotros__contenido">
+                Brindar atención médica de excelencia a nuestra comunidad, con calidez, ética y profesionalismo. Nos
+                comprometemos a prevenir enfermedades, promover la salud y ofrecer diagnósticos y tratamientos oportunos
+                con
+                el apoyo de un equipo altamente capacitado y comprometido con el bienestar humano.
+            </p>
+
+            <h3 class="nosotros__subtitulo">Visión</h3>
+            <p class="nosotros__contenido">
+                Ser un hospital líder en la región, reconocido por su calidad médica, su innovación tecnológica y su
+                cercanía con las personas. Aspiramos a convertirnos en un centro de referencia en atención
+                especializada,
+                fomentando la formación médica continua, la sostenibilidad y la colaboración transfronteriza.
+            </p>
+
+            <h3 class="nosotros__subtitulo">Nuestros Valores</h3>
+            <ul class="nosotros__valores">
+                <li><strong>Empatía:</strong> Comprendemos y valoramos a cada paciente como ser humano único.</li>
+                <li><strong>Excelencia:</strong> Buscamos la mejora continua en nuestros procesos, servicios y
+                    resultados
+                    clínicos.</li>
+                <li><strong>Integridad:</strong> Actuamos con ética, respeto y responsabilidad profesional.</li>
+                <li><strong>Accesibilidad:</strong> Trabajamos para que nuestros servicios lleguen a quienes más lo
+                    necesitan, sin distinciones.</li>
+                <li><strong>Innovación:</strong> Apostamos por la tecnología y la capacitación como motores de cambio
+                    positivo.</li>
+            </ul>
+
+            <h3 class="nosotros__subtitulo">Nuestra Tecnología</h3>
+            <p>
+                Contamos con equipos de diagnóstico e imagenología de última generación, operados por personal altamente
+                capacitado. Nuestra infraestructura está diseñada para garantizar comodidad, seguridad y eficiencia,
+                permitiendo resultados precisos y una atención médica confiable.
+            </p>
+
+            <h3 class="nosotros__subtitulo">Nuestro Compromiso</h3>
+            <p>
+                Cada peso invertido por nuestros pacientes se traduce en mejoras constantes a nuestras instalaciones y
+                servicios. Creemos que la salud es un derecho, y trabajamos con dedicación para asegurar que el acceso a
+                una
+                atención médica de calidad esté al alcance de todos.
+            </p>
+
+            <h3 class="nosotros__subtitulo">Proyección Regional</h3>
+            <p>
+                Desde Ciudad Juárez, extendemos nuestra atención a comunidades del norte de México y el sur de Estados
+                Unidos, consolidándonos como una institución binacional confiable y cercana.
+            </p>
+        </section>
+    </main>
+    <footer class="footer">
+        <h2 class="footer__titulo">Hospital Luz de Esperanza</h2>
+        <h3 class="footer__subtitulo">Todos los derechos conservados</h3>
+    </footer>
+    <script src="https://kit.fontawesome.com/d335561c97.js" crossorigin="anonymous"></script>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

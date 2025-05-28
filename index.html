@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head> 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de Inicio</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Hospital Luz de Esperanza</title>
+    <meta name="description"
+        content="Hospital privado en Ciudad Juárez. Cuidamos tu salud con excelencia médica, atención integral, trato humano y tecnología de vanguardia desde 2005.">
+    <meta name="keywords"
+        content="Hospital, Ciudad Juárez, atención médica, salud, médicos, especialidades, contacto, instalaciones, servicios médicos"> 
+    <meta name="author" content="Hospital Luz de Esperanza"> 
+    <meta name="robots" content="index, follow"> 
+    <meta name="theme-color" content="#2192bf"> 
+    <link rel="icon" href="assets/img/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
@@ -25,8 +34,8 @@
                     <li class="menu__elemento"><a class="menu__enlace" href="#"
                             onclick="menuDesplegable(1)">Conócenos</a>
                         <ul class="menu__desplegable" id="menuConocenos">
-                            <li><a class="menu__enlace" href="">¿Quiénes somos?</a></li>
-                            <li><a class="menu__enlace" href="">Contáctanos</a></li>
+                            <li><a class="menu__enlace" href="pages/nosotros.html">¿Quiénes somos?</a></li>
+                            <li><a class="menu__enlace" href="#contacto">Contáctanos</a></li>
                         </ul>
                     </li>
                     <li class="menu__elemento"><a class="menu__enlace" href="">Servicios</a></li>
@@ -418,7 +427,7 @@
             </ul>
         </section>
         <div class="contactoUbicacion">
-            <section class="contacto">
+            <section id="contacto" class="contacto">
                 <h3 class="secciones__subtitulo">No dudes en </h3>
                 <h2 class="secciones__titulo">Contáctanos</h2>
                 <form method="" action="" class="contacto__formulario" onsubmit="contactoEnviar(event)">

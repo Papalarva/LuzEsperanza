@@ -108,7 +108,7 @@ html {font-size: 100%; }
 /* --------------------------------- PORTADA -------------------------------- */
 .portada {
     background-color: #731a4b;
-    margin-top: calc(50px + 2*var(--padding));;
+    margin-top: calc(50px + 2*var(--padding));
     height: calc(100dvh - (50px + 2*var(--padding)));
     position: relative;
 }
@@ -148,7 +148,7 @@ html {font-size: 100%; }
     width: 90%; 
     margin: 2rem auto;
 }
-.secciones__titulo{
+.secciones__titulo, .nosotros__subtitulo{
     font-family: var(--titulo);
     font-weight: 700;
     font-size: 2rem;
