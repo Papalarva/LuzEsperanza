@@ -93,7 +93,7 @@
                     cada paciente es una prioridad y cada vida, una esperanza.</p>
             </div>
             <picture class="bienvenida__imagen">
-                <source media="(min-width: 1024px)" srcset="assets/img/bienvenida__grande.png" >
+                <source media="(min-width: 1024px)" srcset="assets/img/bienvenida__grande.png">
                 <source media="(min-width: 600px)" srcset="assets/img/bienvenida__mediana.png">
                 <source media="(max-width: 599px)" srcset="assets/img/logo.png">
                 <img class="bienvenida__logo" src="assets/img/logo.png" alt="Imagen adaptable">
@@ -417,54 +417,61 @@
                 </li>
             </ul>
         </section>
-        <section>
-            <h3 class="secciones__subtitulo">No dudes en </h3>
-            <h2 class="secciones__titulo">Contáctanos</h2>
-            <form method="" action="" class="contacto__formulario" onsubmit="contactoEnviar(event)">
-                <label for="nombre" class="contacto__label">
-                    <input type="text" name="nombre" id="nombre" placeholder="" class="contacto__input">
-                    <span class="contacto__placeholder">Nombre Completo</span>
-                    <span class="contacto__error" id="nombreError"></span>
-                </label>
-                <label for="email" class="contacto__label">
-                    <input type="email" name="email" id="email" placeholder="" class="contacto__input">
-                    <span class="contacto__placeholder">Correo</span>
-                    <span class="contacto__error" id="emailError"></span>
-                </label>
-                <label for="telefono" class="contacto__label">
-                    <input type="number" name="telefono" id="telefono" placeholder="" class="contacto__input">
-                    <span class="contacto__placeholder">Telefóno</span>
-                    <span class="contacto__error" id="telefonoError"></span>
-                </label>
-                <label for="asunto" class="contacto__label">
-                    <input type="text" name="asunto" id="asunto" placeholder="" class="contacto__input">
-                    <span class="contacto__placeholder">Asunto</span>
-                    <span class="contacto__error" id="asuntoError"></span>
-                </label>
-                <label for="mensaje" class="contacto__label">
-                    <textarea name="mensaje" id="mensaje" placeholder=""
-                        class="contacto__input contacto__textarea"></textarea>
-                    <span class="contacto__placeholder">Mensaje</span>
-                    <span class="contacto__error" id="mensajeError"></span>
-                </label>
-                <div class="contacto__botones">
-                    <input class="contacto__boton" type="reset" value="Borrar">
-                    <input class="contacto__boton" type="submit" value="Enviar">
-                </div>
-                <dialog id="contactoModal" class="contacto__modal">
-                    <h2>Registro exitoso</h2>
-                    <i class="fa-solid fa-circle-check contacto__icono"></i>
-                    <p>Se enviaron correctamente los datos</p>
-                    <button class="contacto__boton" id="contactoModalClose">Cerrrar modal</button>
-                </dialog>
-            </form>
-        </section>
-        <section>
-
-        </section>
+        <div class="contactoUbicacion">
+            <section class="contacto">
+                <h3 class="secciones__subtitulo">No dudes en </h3>
+                <h2 class="secciones__titulo">Contáctanos</h2>
+                <form method="" action="" class="contacto__formulario" onsubmit="contactoEnviar(event)">
+                    <label for="nombre" class="contacto__label">
+                        <input type="text" name="nombre" id="nombre" placeholder="" class="contacto__input">
+                        <span class="contacto__placeholder">Nombre Completo</span>
+                        <span class="contacto__error" id="nombreError"></span>
+                    </label>
+                    <label for="email" class="contacto__label">
+                        <input type="email" name="email" id="email" placeholder="" class="contacto__input">
+                        <span class="contacto__placeholder">Correo</span>
+                        <span class="contacto__error" id="emailError"></span>
+                    </label>
+                    <label for="telefono" class="contacto__label">
+                        <input type="number" name="telefono" id="telefono" placeholder="" class="contacto__input">
+                        <span class="contacto__placeholder">Telefóno</span>
+                        <span class="contacto__error" id="telefonoError"></span>
+                    </label>
+                    <label for="asunto" class="contacto__label">
+                        <input type="text" name="asunto" id="asunto" placeholder="" class="contacto__input">
+                        <span class="contacto__placeholder">Asunto</span>
+                        <span class="contacto__error" id="asuntoError"></span>
+                    </label>
+                    <label for="mensaje" class="contacto__label">
+                        <textarea name="mensaje" id="mensaje" placeholder=""
+                            class="contacto__input contacto__textarea"></textarea>
+                        <span class="contacto__placeholder">Mensaje</span>
+                        <span class="contacto__error" id="mensajeError"></span>
+                    </label>
+                    <div class="contacto__botones">
+                        <input class="contacto__boton" type="reset" value="Borrar">
+                        <input class="contacto__boton" type="submit" value="Enviar">
+                    </div>
+                    <dialog id="contactoModal" class="contacto__modal">
+                        <h2>Registro exitoso</h2>
+                        <i class="fa-solid fa-circle-check contacto__icono"></i>
+                        <p>Se enviaron correctamente los datos</p>
+                        <button class="contacto__boton" id="contactoModalClose">Cerrrar modal</button>
+                    </dialog>
+                </form>
+            </section>
+            <section class="ubicacion">
+                <h3 class="secciones__subtitulo">No dudes en </h3>
+                <h2 class="secciones__titulo">Venir</h2>
+                <iframe class="ubicacion__mapa"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d424.14474166476697!2d-106.45901897611866!3d31.738889845652793!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86e75946126b362d%3A0x690eacbaf9651bc5!2sCentro%20M%C3%A9dico%20de%20Especialidades%20de%20Ciudad%20Ju%C3%A1rez!5e0!3m2!1ses!2smx!4v1748407231205!5m2!1ses!2smx"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </section>
+        </div>
     </main>
     <footer class="footer">
-
+        <h2 class="footer__titulo">Hospital Luz de Esperanza</h2>
+        <h3 class="footer__subtitulo">Todos los derechos conservados</h3>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
     <script
