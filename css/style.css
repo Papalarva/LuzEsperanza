@@ -50,14 +50,15 @@ html {font-size: 100%; }
     z-index: 100;
     box-shadow: 0 2px 2px #CCC;
 }
-.cabecera__logo {
+.cabecera__logo { 
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center; 
+    text-decoration: none;
 }
 .cabecera__img { height: 50px; }
-.cabecera__nombre {
+.cabecera__nombre { 
     font-family: var(--titulo);
     font-weight: 600;
     color: var(--azul);
@@ -326,6 +327,7 @@ html {font-size: 100%; }
     font-weight: 600;
     padding: 0.5rem;
 }
+
 .contacto__modal{
     border: none ; 
     align-items: center;
@@ -338,6 +340,7 @@ html {font-size: 100%; }
     box-shadow: 0 0 10px #0004; 
     flex-direction: column;
     gap: 1rem;
+    text-align: center;
 }
 .contacto__icono{
     font-size: 100px;

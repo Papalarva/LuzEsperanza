@@ -12,9 +12,6 @@
 .nosotros__introducción .bienvenida__imagen {
     display: none;
 }
-.nosotros__introducción .bienvenida__texto, .nosotros__introducción .bienvenida__imagen {
-    flex: 1;
-}
 
 .nosotros__contenido{
     border-left: 2px solid var(--rosa);

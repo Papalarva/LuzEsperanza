@@ -1,18 +1,71 @@
+<?php
+include("php/conexion.php");
+$nombre = $email = $telefono = $asunto = $mensaje = "";
+$errores = [];
+$mostrar_modal = false;
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    if (isset($_POST['confirmar_insert'])) {
+        $nombre = $conexion->real_escape_string($_POST['nombre']);
+        $email = $conexion->real_escape_string($_POST['email']);
+        $telefono = $conexion->real_escape_string($_POST['telefono']);
+        $asunto = $conexion->real_escape_string($_POST['asunto']);
+        $mensaje = $conexion->real_escape_string($_POST['mensaje']);
+
+        $sql = "INSERT INTO contactos (nombre, email, telefono, asunto, mensaje) VALUES ('$nombre', '$email', '$telefono', '$asunto', '$mensaje')";
+
+        if ($conexion->query($sql) === TRUE) {
+            header("Location: index.php");
+            exit;
+        } else {
+            $errores['bd'] = "Error al guardar los datos: " . $conexion->error;
+        }
+
+    } else {
+        $nombre = htmlspecialchars(mb_strtoupper(trim($_POST['nombre']), 'UTF-8'));
+        $email = htmlspecialchars(trim($_POST['email']));
+        $telefono = htmlspecialchars(trim($_POST['telefono']));
+        $asunto = htmlspecialchars(mb_strtoupper(trim($_POST['asunto']), 'UTF-8'));
+        $mensaje = htmlspecialchars(trim($_POST['mensaje']));
+
+        if (!preg_match('/^[a-zA-ZÁÉÍÓÚÜÑáéíóúüñ\s]+$/u', $nombre)) {
+            $errores['nombre'] = 'Este campo no puede estar vacío ni contener números o símbolos.';
+        }
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $errores['email'] = 'Correo electrónico no válido.';
+        }
+        if (!preg_match('/^[0-9]{10}$/', $telefono)) {
+            $errores['telefono'] = 'El teléfono debe tener de 10 dígitos.';
+        }
+        if (!preg_match('/\S+/', $asunto)) {
+            $errores['asunto'] = 'El asunto no puede estar vacío.';
+        }
+        if (!preg_match('/\S+/', $mensaje)) {
+            $errores['mensaje'] = 'El mensaje no puede estar vacío.';
+        }
+
+        if (empty($errores)) {
+            $mostrar_modal = true;
+        }
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
-<head> 
+<head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hospital Luz de Esperanza</title>
     <meta name="description"
         content="Hospital privado en Ciudad Juárez. Cuidamos tu salud con excelencia médica, atención integral, trato humano y tecnología de vanguardia desde 2005.">
     <meta name="keywords"
-        content="Hospital, Ciudad Juárez, atención médica, salud, médicos, especialidades, contacto, instalaciones, servicios médicos"> 
-    <meta name="author" content="Hospital Luz de Esperanza"> 
-    <meta name="robots" content="index, follow"> 
-    <meta name="theme-color" content="#2192bf"> 
+        content="Hospital, Ciudad Juárez, atención médica, salud, médicos, especialidades, contacto, instalaciones, servicios médicos">
+    <meta name="author" content="Hospital Luz de Esperanza">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#2192bf">
     <link rel="icon" href="assets/img/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
     <link rel="stylesheet" href="css/normalize.css">
@@ -24,11 +77,11 @@
 <body>
     <header class="header">
         <section class="cabecera">
-            <div class="cabecera__logo">
+            <a href="index.php" class="cabecera__logo">
                 <img class="cabecera__img" src="assets/img/logo.png" alt="Logo de Hospital Luz de Esperanza">
                 <p class="cabecera__nombre">Hospital Luz de Esperanza</p>
                 <i id="botonMenu" class="fa fa-bars menu__boton" onclick="abrirMenu()" aria-hidden="true"></i>
-            </div>
+            </a>
             <nav id="menu" class="menu">
                 <ul class="menu__lista">
                     <li class="menu__elemento"><a class="menu__enlace" href="#"
@@ -38,7 +91,7 @@
                             <li><a class="menu__enlace" href="#contacto">Contáctanos</a></li>
                         </ul>
                     </li>
-                    <li class="menu__elemento"><a class="menu__enlace" href="">Servicios</a></li>
+                    <li class="menu__elemento"><a class="menu__enlace" href="#servicios">Servicios</a></li>
                     <li class="menu__elemento"><a class="menu__enlace" onclick="menuDesplegable(2)" href="#">Accesos
                             rápidos</a>
                         <ul class="menu__desplegable" id="menuAccesos">
@@ -108,7 +161,7 @@
                 <img class="bienvenida__logo" src="assets/img/logo.png" alt="Imagen adaptable">
             </picture>
         </section>
-        <section class="servicios">
+        <section id="servicios" class="servicios">
             <h3 class="secciones__subtitulo">Conoce nuestros</h3>
             <h2 class="secciones__titulo">Servicios</h2>
             <section id="carruselServicios" class="splide" aria-label="Beautiful Images">
@@ -430,45 +483,74 @@
             <section id="contacto" class="contacto">
                 <h3 class="secciones__subtitulo">No dudes en </h3>
                 <h2 class="secciones__titulo">Contáctanos</h2>
-                <form method="" action="" class="contacto__formulario" onsubmit="contactoEnviar(event)">
+
+                <form method="POST" action="index.php#contacto" class="contacto__formulario" novalidate>
                     <label for="nombre" class="contacto__label">
-                        <input type="text" name="nombre" id="nombre" placeholder="" class="contacto__input">
+                        <input type="text" name="nombre" id="nombre" class="contacto__input"
+                            value="<?= htmlspecialchars($nombre) ?>">
                         <span class="contacto__placeholder">Nombre Completo</span>
-                        <span class="contacto__error" id="nombreError"></span>
+                        <span class="contacto__error"><?= $errores['nombre'] ?? '' ?></span>
                     </label>
+
                     <label for="email" class="contacto__label">
-                        <input type="email" name="email" id="email" placeholder="" class="contacto__input">
+                        <input type="email" name="email" id="email" class="contacto__input"
+                            value="<?= htmlspecialchars($email) ?>">
                         <span class="contacto__placeholder">Correo</span>
-                        <span class="contacto__error" id="emailError"></span>
+                        <span class="contacto__error"><?= $errores['email'] ?? '' ?></span>
                     </label>
+
                     <label for="telefono" class="contacto__label">
-                        <input type="number" name="telefono" id="telefono" placeholder="" class="contacto__input">
-                        <span class="contacto__placeholder">Telefóno</span>
-                        <span class="contacto__error" id="telefonoError"></span>
+                        <input type="number" name="telefono" id="telefono" class="contacto__input" maxlength="10"
+                            value="<?= htmlspecialchars($telefono) ?>">
+                        <span class="contacto__placeholder">Teléfono</span>
+                        <span class="contacto__error"><?= $errores['telefono'] ?? '' ?></span>
                     </label>
+
                     <label for="asunto" class="contacto__label">
-                        <input type="text" name="asunto" id="asunto" placeholder="" class="contacto__input">
+                        <input type="text" name="asunto" id="asunto" class="contacto__input"
+                            value="<?= htmlspecialchars($asunto) ?>">
                         <span class="contacto__placeholder">Asunto</span>
-                        <span class="contacto__error" id="asuntoError"></span>
+                        <span class="contacto__error"><?= $errores['asunto'] ?? '' ?></span>
                     </label>
+
                     <label for="mensaje" class="contacto__label">
-                        <textarea name="mensaje" id="mensaje" placeholder=""
-                            class="contacto__input contacto__textarea"></textarea>
+                        <textarea name="mensaje" id="mensaje"
+                            class="contacto__input contacto__textarea"><?= htmlspecialchars($mensaje) ?></textarea>
                         <span class="contacto__placeholder">Mensaje</span>
-                        <span class="contacto__error" id="mensajeError"></span>
+                        <span class="contacto__error"><?= $errores['mensaje'] ?? '' ?></span>
                     </label>
+
+                    <?php if (!empty($errores['bd'])): ?>
+                        <p class="contacto__error"><?= $errores['bd'] ?></p>
+                    <?php endif; ?>
+
                     <div class="contacto__botones">
                         <input class="contacto__boton" type="reset" value="Borrar">
                         <input class="contacto__boton" type="submit" value="Enviar">
                     </div>
-                    <dialog id="contactoModal" class="contacto__modal">
-                        <h2>Registro exitoso</h2>
-                        <i class="fa-solid fa-circle-check contacto__icono"></i>
-                        <p>Se enviaron correctamente los datos</p>
-                        <button class="contacto__boton" id="contactoModalClose">Cerrrar modal</button>
-                    </dialog>
+
+                    <?php if ($mostrar_modal): ?>
+                        <dialog id="contactoModal" class="contacto__modal">
+                            <h2>Envio exitoso</h2>
+                            <i class="fa-solid fa-circle-check contacto__icono"></i>
+                            <p>Se envió correctamente el mensaje. </p>
+                            <p><strong>¡Gracias por contactarnos!</strong></p>
+
+                            <form method="POST" action="index.php">
+                                <input type="hidden" name="nombre" value="<?= htmlspecialchars($nombre) ?>">
+                                <input type="hidden" name="email" value="<?= htmlspecialchars($email) ?>">
+                                <input type="hidden" name="telefono" value="<?= htmlspecialchars($telefono) ?>">
+                                <input type="hidden" name="asunto" value="<?= htmlspecialchars($asunto) ?>">
+                                <input type="hidden" name="mensaje" value="<?= htmlspecialchars($mensaje) ?>">
+                                <input type="hidden" name="confirmar_insert" value="1">
+                                <button type="submit" class="contacto__boton">Cerrar</button>
+                            </form>
+                        </dialog>
+                    <?php endif; ?>
+
                 </form>
             </section>
+
             <section class="ubicacion">
                 <h3 class="secciones__subtitulo">No dudes en </h3>
                 <h2 class="secciones__titulo">Venir</h2>
@@ -482,11 +564,11 @@
         <h2 class="footer__titulo">Hospital Luz de Esperanza</h2>
         <h3 class="footer__subtitulo">Todos los derechos conservados</h3>
     </footer>
+    <script src="js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
     <script
         src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-grid@0.4.1/dist/js/splide-extension-grid.min.js"></script>
     <script src="https://kit.fontawesome.com/d335561c97.js" crossorigin="anonymous"></script>
-    <script src="js/script.js"></script>
 
 </body>
 

@@ -228,31 +228,13 @@ function splideInstalaciones() {
     splide.mount();
 }
 
-function contactoEnviar(event) {
-    event.preventDefault();
-    let enviar = true;
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("contactoModal");
 
-    let inputs = document.querySelectorAll(".contacto__input");
-
-    inputs.forEach(input => {
-        if (input.value.trim() === "") {
-            document.getElementById(input.id + "Error").textContent = "Este campo no puede estar vacío";
-            enviar = false;
-        } else {
-            document.getElementById(input.id + "Error").textContent = "";
-        }
-    });
-
-    if (enviar) {
-        let modal = document.getElementById("contactoModal");
-        modal.showModal(); 
-        modal.style.display = "flex"; 
-
-        const modalClose = document.getElementById("contactoModalClose");
-        modalClose.addEventListener("click", function () {
-            modal.close();
-            event.target.submit();  
-        });
-
+  if (modal && typeof modal.showModal === "function") { 
+    if (!modal.open) {
+      modal.showModal();
+      modal.style.display = "flex";
     }
-}
+  }
+});

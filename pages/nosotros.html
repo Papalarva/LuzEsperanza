@@ -23,21 +23,21 @@
 <body>
     <header class="header">
         <section class="cabecera">
-            <div class="cabecera__logo">
+            <a href="../index.php" class="cabecera__logo">
                 <img class="cabecera__img" src="../assets/img/logo.png" alt="Logo de Hospital Luz de Esperanza">
                 <p class="cabecera__nombre">Hospital Luz de Esperanza</p>
                 <i id="botonMenu" class="fa fa-bars menu__boton" onclick="abrirMenu()" aria-hidden="true"></i>
-            </div>
+            </a>
             <nav id="menu" class="menu">
                 <ul class="menu__lista">
                     <li class="menu__elemento"><a class="menu__enlace" href="#"
                             onclick="menuDesplegable(1)">Conócenos</a>
                         <ul class="menu__desplegable" id="menuConocenos">
                             <li><a class="menu__enlace" href="pages/nosotros.html">¿Quiénes somos?</a></li>
-                            <li><a class="menu__enlace" href="#contacto">Contáctanos</a></li>
+                            <li><a class="menu__enlace" href="../index.php#contacto">Contáctanos</a></li>
                         </ul>
                     </li>
-                    <li class="menu__elemento"><a class="menu__enlace" href="">Servicios</a></li>
+                    <li class="menu__elemento"><a class="menu__enlace" href="../index.php#servicios">Servicios</a></li>
                     <li class="menu__elemento"><a class="menu__enlace" onclick="menuDesplegable(2)" href="#">Accesos
                             rápidos</a>
                         <ul class="menu__desplegable" id="menuAccesos">
@@ -70,10 +70,7 @@
                         cada
                         persona que atendemos.</p>
                 </div>
-                <picture class="bienvenida__imagen">
-                    <source media="(min-width: 1024px)" srcset="../assets/img/bienvenida__grande.png">
-                    <source media="(min-width: 600px)" srcset="../assets/img/bienvenida__mediana.png">
-                    <source media="(max-width: 599px)" srcset="../assets/img/logo.png">
+                <picture class="bienvenida__imagen"> 
                     <img class="bienvenida__logo" src="../assets/img/logo.png" alt="Imagen adaptable">
                 </picture>
             </section>
