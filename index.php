@@ -77,11 +77,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <body>
     <header class="header">
         <section class="cabecera">
-            <a href="index.php" class="cabecera__logo">
-                <img class="cabecera__img" src="assets/img/logo.png" alt="Logo de Hospital Luz de Esperanza">
+            <div href="index.php" class="cabecera__logo">
+                <a href="">
+                    <img class="cabecera__img" src="assets/img/logo.png" alt="Logo de Hospital Luz de Esperanza">
+                </a>
                 <p class="cabecera__nombre">Hospital Luz de Esperanza</p>
                 <i id="botonMenu" class="fa fa-bars menu__boton" onclick="abrirMenu()" aria-hidden="true"></i>
-            </a>
+            </div>
             <nav id="menu" class="menu">
                 <ul class="menu__lista">
                     <li class="menu__elemento"><a class="menu__enlace" href="#"
@@ -103,7 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             <li><a class="menu__enlace" href="">Evalúa nuestros servicios</a></li>
                         </ul>
                     </li>
-                    <li class="menu__elemento"><a class="menu__enlace" href="">Iniciar sesión</a></li>
+                    <li class="menu__elemento"><a class="menu__enlace" href="pages/iniciarSesion.php">Iniciar sesión</a></li>
                 </ul>
             </nav>
         </section>
@@ -486,28 +488,28 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                 <form method="POST" action="index.php#contacto" class="contacto__formulario" novalidate>
                     <label for="nombre" class="contacto__label">
-                        <input type="text" name="nombre" id="nombre" class="contacto__input"
+                        <input placeholder="" type="text" name="nombre" id="nombre" class="contacto__input"
                             value="<?= htmlspecialchars($nombre) ?>">
                         <span class="contacto__placeholder">Nombre Completo</span>
                         <span class="contacto__error"><?= $errores['nombre'] ?? '' ?></span>
                     </label>
 
                     <label for="email" class="contacto__label">
-                        <input type="email" name="email" id="email" class="contacto__input"
+                        <input placeholder="" type="email" name="email" id="email" class="contacto__input"
                             value="<?= htmlspecialchars($email) ?>">
                         <span class="contacto__placeholder">Correo</span>
                         <span class="contacto__error"><?= $errores['email'] ?? '' ?></span>
                     </label>
 
                     <label for="telefono" class="contacto__label">
-                        <input type="number" name="telefono" id="telefono" class="contacto__input" maxlength="10"
+                        <input placeholder="" type="number" name="telefono" id="telefono" class="contacto__input" maxlength="10"
                             value="<?= htmlspecialchars($telefono) ?>">
                         <span class="contacto__placeholder">Teléfono</span>
                         <span class="contacto__error"><?= $errores['telefono'] ?? '' ?></span>
                     </label>
 
                     <label for="asunto" class="contacto__label">
-                        <input type="text" name="asunto" id="asunto" class="contacto__input"
+                        <input placeholder="" type="text" name="asunto" id="asunto" class="contacto__input"
                             value="<?= htmlspecialchars($asunto) ?>">
                         <span class="contacto__placeholder">Asunto</span>
                         <span class="contacto__error"><?= $errores['asunto'] ?? '' ?></span>

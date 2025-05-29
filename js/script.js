@@ -238,3 +238,25 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("registroModal");
+
+  if (modal && typeof modal.showModal === "function") { 
+    if (!modal.open) {
+      modal.showModal();
+      modal.style.display = "flex";
+    }
+  }
+});
+document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('confirmModal');
+            if (modal) {
+                modal.showModal();
+
+                // Cancelar: cerrar modal y no hacer nada
+                document.getElementById('cancelBtn').addEventListener('click', () => {
+                    modal.close();
+                });
+            }
+        });

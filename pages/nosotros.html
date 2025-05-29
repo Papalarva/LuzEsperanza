@@ -23,11 +23,13 @@
 <body>
     <header class="header">
         <section class="cabecera">
-            <a href="../index.php" class="cabecera__logo">
-                <img class="cabecera__img" src="../assets/img/logo.png" alt="Logo de Hospital Luz de Esperanza">
+            <div class="cabecera__logo">
+                <a href="../index.php">
+                    <img class="cabecera__img" src="../assets/img/logo.png" alt="Logo de Hospital Luz de Esperanza">
+                </a>
                 <p class="cabecera__nombre">Hospital Luz de Esperanza</p>
                 <i id="botonMenu" class="fa fa-bars menu__boton" onclick="abrirMenu()" aria-hidden="true"></i>
-            </a>
+            </div>
             <nav id="menu" class="menu">
                 <ul class="menu__lista">
                     <li class="menu__elemento"><a class="menu__enlace" href="#"
@@ -49,88 +51,120 @@
                             <li><a class="menu__enlace" href="">Evalúa nuestros servicios</a></li>
                         </ul>
                     </li>
-                    <li class="menu__elemento"><a class="menu__enlace" href="">Iniciar sesión</a></li>
+                    <li class="menu__elemento"><a class="menu__enlace" href="iniciarSesion.php">Iniciar sesión</a></li>
                 </ul>
             </nav>
         </section>
+        <div class="portada portada__nosotros">
+            <div class="portada__texto">
+                <p class="nosotros__parrafo">
+                    Hospital Luz de Esperanza ha sido parte de la comunidad juarense desde su fundación, brindando
+                    atención médica integral con calidez, calidad y accesibilidad. Ofrecemos diversos servicios
+                    hospitalarios y diagnósticos, lo que nos ha ganado la confianza de los pacientes en Ciudad Juárez.
+                    Contamos con médicos capacitados, tecnología moderna y un compromiso firme con el bienestar físico,
+                    emocional y social de cada persona.
+                </p>
+            </div>
+        </div>
     </header>
-    <main class="main">
-        <section class="nosotros">
-            <h2 class="secciones__titulo">Nosotros</h2>
-            <section class="bienvenida nosotros__introducción">
-                <div class="bienvenida__texto">
-                    <p class="bienvenida__parrafo">Hospital Luz de Esperanza forma parte de la comunidad juarense desde
-                        su fundación, ofreciendo atención
-                        médica integral con un enfoque cálido, accesible y de calidad. Contamos con una gama de
-                        servicios
-                        hospitalarios y diagnósticos que nos han permitido ganar la confianza de pacientes en Ciudad
-                        Juárez.
-                        Nuestra presencia en la región fronteriza se respalda con personal médico altamente capacitado,
-                        tecnología de vanguardia y un firme compromiso con el bienestar físico, emocional y social de
-                        cada
-                        persona que atendemos.</p>
-                </div>
-                <picture class="bienvenida__imagen"> 
-                    <img class="bienvenida__logo" src="../assets/img/logo.png" alt="Imagen adaptable">
-                </picture>
+
+    <main class="main nosotros" >
+        <section class="nosotros__grande">
+            <section class="nosotros__descripcion">
+                <h3 class="nosotros__subtitulo">Nuestro Propósito</h3>
+                <p class="nosotros__contenido">
+                    Crear un acceso real a servicios médicos de calidad para todas las personas, con sensibilidad,
+                    tecnología de
+                    vanguardia y atención oportuna.
+                </p>
+
+                <h3 class="nosotros__subtitulo">Misión</h3>
+                <p class="nosotros__contenido">
+                    Brindar atención médica de excelencia a nuestra comunidad, con calidez, ética y profesionalismo. Nos
+                    comprometemos a prevenir enfermedades, promover la salud y ofrecer diagnósticos y tratamientos
+                    oportunos
+                    con
+                    el apoyo de un equipo altamente capacitado y comprometido con el bienestar humano.
+                </p>
+
+                <h3 class="nosotros__subtitulo">Visión</h3>
+                <p class="nosotros__contenido">
+                    Ser un hospital líder en la región, reconocido por su calidad médica, su innovación tecnológica y su
+                    cercanía con las personas. Aspiramos a convertirnos en un centro de referencia en atención
+                    especializada,
+                    fomentando la formación médica continua, la sostenibilidad y la colaboración transfronteriza.
+                </p>
             </section>
-
-            <h3 class="nosotros__subtitulo">Nuestro Propósito</h3>
-            <p class="nosotros__contenido">
-                Crear un acceso real a servicios médicos de calidad para todas las personas, con sensibilidad,
-                tecnología de
-                vanguardia y atención oportuna.
-            </p>
-
-            <h3 class="nosotros__subtitulo">Misión</h3>
-            <p class="nosotros__contenido">
-                Brindar atención médica de excelencia a nuestra comunidad, con calidez, ética y profesionalismo. Nos
-                comprometemos a prevenir enfermedades, promover la salud y ofrecer diagnósticos y tratamientos oportunos
-                con
-                el apoyo de un equipo altamente capacitado y comprometido con el bienestar humano.
-            </p>
-
-            <h3 class="nosotros__subtitulo">Visión</h3>
-            <p class="nosotros__contenido">
-                Ser un hospital líder en la región, reconocido por su calidad médica, su innovación tecnológica y su
-                cercanía con las personas. Aspiramos a convertirnos en un centro de referencia en atención
-                especializada,
-                fomentando la formación médica continua, la sostenibilidad y la colaboración transfronteriza.
-            </p>
-
+            <section class="nosotros__imagen">
+                <img class="nosotros__img" src="../assets/img/nosotros__mision.jpg" alt="">
+            </section>
+        </section>
+        <section class="nosotros__valores">
             <h3 class="nosotros__subtitulo">Nuestros Valores</h3>
             <ul class="nosotros__valores">
-                <li><strong>Empatía:</strong> Comprendemos y valoramos a cada paciente como ser humano único.</li>
-                <li><strong>Excelencia:</strong> Buscamos la mejora continua en nuestros procesos, servicios y
+                <li class="nosotros__valor">
+                    <h3 class="valores__titulo">Empatía:</h3> Comprendemos y valoramos a cada paciente como ser humano
+                    único.
+                </li>
+                <li class="nosotros__valor">
+                    <h3 class="valores__titulo">Excelencia:</h3> Buscamos la mejora continua en nuestros procesos,
+                    servicios y
                     resultados
-                    clínicos.</li>
-                <li><strong>Integridad:</strong> Actuamos con ética, respeto y responsabilidad profesional.</li>
-                <li><strong>Accesibilidad:</strong> Trabajamos para que nuestros servicios lleguen a quienes más lo
-                    necesitan, sin distinciones.</li>
-                <li><strong>Innovación:</strong> Apostamos por la tecnología y la capacitación como motores de cambio
-                    positivo.</li>
+                    clínicos.
+                </li>
+                <li class="nosotros__valor">
+                    <h3 class="valores__titulo">Integridad:</h3> Actuamos con ética, respeto y responsabilidad
+                    profesional.
+                </li>
+                <li class="nosotros__valor">
+                    <h3 class="valores__titulo">Accesibilidad:</h3> Trabajamos para que nuestros servicios lleguen a
+                    quienes más lo
+                    necesitan, sin distinciones.
+                </li>
+                <li class="nosotros__valor">
+                    <h3 class="valores__titulo">Innovación:</h3> Apostamos por la tecnología y la capacitación como
+                    motores de cambio
+                    positivo.
+                </li>
             </ul>
+        </section>
+        <script>
+            const colores = ['#731a4b', '#72a69c', '#2192bf', '#025e73'];
+            const valores = document.querySelectorAll('.nosotros__valor');
+            valores.forEach((valor, index) => {
+                valor.style.backgroundColor = colores[index % colores.length];
+            });
+        </script>
+        <section class="nosotros__grande nosotros__grande-Inverso">
+            <section class="nosotros__descripcion">
+                <h3 class="nosotros__subtitulo">Nuestra Tecnología</h3>
+                <p class="nosotros__contenido nosotros__contenido-Inverso">
+                    Contamos con equipos de diagnóstico e imagenología de última generación, operados por personal
+                    altamente
+                    capacitado. Nuestra infraestructura está diseñada para garantizar comodidad, seguridad y eficiencia,
+                    permitiendo resultados precisos y una atención médica confiable.
+                </p>
 
-            <h3 class="nosotros__subtitulo">Nuestra Tecnología</h3>
-            <p>
-                Contamos con equipos de diagnóstico e imagenología de última generación, operados por personal altamente
-                capacitado. Nuestra infraestructura está diseñada para garantizar comodidad, seguridad y eficiencia,
-                permitiendo resultados precisos y una atención médica confiable.
-            </p>
+                <h3 class="nosotros__subtitulo">Nuestro Compromiso</h3>
+                <p class="nosotros__contenido nosotros__contenido-Inverso">
+                    Cada peso invertido por nuestros pacientes se traduce en mejoras constantes a nuestras instalaciones
+                    y
+                    servicios. Creemos que la salud es un derecho, y trabajamos con dedicación para asegurar que el
+                    acceso a
+                    una
+                    atención médica de calidad esté al alcance de todos.
+                </p>
 
-            <h3 class="nosotros__subtitulo">Nuestro Compromiso</h3>
-            <p>
-                Cada peso invertido por nuestros pacientes se traduce en mejoras constantes a nuestras instalaciones y
-                servicios. Creemos que la salud es un derecho, y trabajamos con dedicación para asegurar que el acceso a
-                una
-                atención médica de calidad esté al alcance de todos.
-            </p>
-
-            <h3 class="nosotros__subtitulo">Proyección Regional</h3>
-            <p>
-                Desde Ciudad Juárez, extendemos nuestra atención a comunidades del norte de México y el sur de Estados
-                Unidos, consolidándonos como una institución binacional confiable y cercana.
-            </p>
+                <h3 class="nosotros__subtitulo">Proyección Regional</h3>
+                <p class="nosotros__contenido nosotros__contenido-Inverso">
+                    Desde Ciudad Juárez, extendemos nuestra atención a comunidades del norte de México y el sur de
+                    Estados
+                    Unidos, consolidándonos como una institución binacional confiable y cercana.
+                </p>
+            </section>
+            <section class="nosotros__imagen">
+                <img class="nosotros__img" src="../assets/img/nosotros__tecnologia.jpg" alt="">
+            </section>
         </section>
     </main>
     <footer class="footer">

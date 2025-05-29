@@ -89,9 +89,9 @@ html {font-size: 100%; }
 .menu__lista, .menu__desplegable{list-style: none;}
 .menu__enlace {
     color: var(--negro);
-    display: inline-block;
+    display: flex;
     padding: var(--padding);
-    text-decoration: none;
+    text-decoration: none; 
 }
 .menu__desplegable{
     display: none;
@@ -103,7 +103,7 @@ html {font-size: 100%; }
     }
 }
 .menu__desplegable .menu__enlace { padding-left: 2rem;}
-.menu__elemento, .menu__desplegable .menu__enlace {border-bottom: 1px solid #ccc;}
+.menu__elemento{border-bottom: 1px solid #ccc;}
 .menu__lista:first-child, .menu__desplegable .menu__enlace:first-child {border-top: 1px solid #ccc;}
 
 /* --------------------------------- PORTADA -------------------------------- */
