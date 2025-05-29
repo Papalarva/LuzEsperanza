@@ -1,4 +1,5 @@
 <?php
+
 include("php/conexion.php");
 $nombre = $email = $telefono = $asunto = $mensaje = "";
 $errores = [];
@@ -98,14 +99,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             rápidos</a>
                         <ul class="menu__desplegable" id="menuAccesos">
                             <li><a class="menu__enlace" href="">Resultados</a></li>
-                            <li><a class="menu__enlace" href="">Agendar cita</a></li>
-                            <li><a class="menu__enlace" href="">Cambiar cita</a></li>
-                            <li><a class="menu__enlace" href="">Reembolso</a></li>
-                            <li><a class="menu__enlace" href="">Facuración electrónica</a></li>
-                            <li><a class="menu__enlace" href="">Evalúa nuestros servicios</a></li>
+                            <li><a class="menu__enlace" href="pages/agendarCita.php">Agendar cita</a></li>
+                            <li><a class="menu__enlace" href="pages/modificarCita.php">Cambiar cita</a></li> 
                         </ul>
                     </li>
-                    <li class="menu__elemento"><a class="menu__enlace" href="pages/iniciarSesion.php">Iniciar sesión</a></li>
+                    <li class="menu__elemento"><a class="menu__enlace" href="pages/iniciarSesion.php">Iniciar sesión</a>
+                    </li>
                 </ul>
             </nav>
         </section>
@@ -428,10 +427,112 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 </div>
             </section>
         </section>
-        <section>
+        <?php
+
+        $especialidades = [
+            "Medicina General",
+            "Pediatría",
+            "Ginecología",
+            "Cardiología",
+            "Dermatología",
+            "Oftalmología",
+            "Neurología",
+            "Psiquiatría",
+            "Ortopedia",
+            "Oncología",
+            "Otorrinolaringología",
+            "Endocrinología",
+            "Urología"
+        ];
+
+        $especialidad = $_GET['especialidad'] ?? '';
+        ?>
+        <section id="especialidades">
             <h3 class="secciones__subtitulo">Encuentra a tu</h3>
             <h2 class="secciones__titulo">Médico</h2>
+
+            <form method="GET" action="index.php#especialidades" class="contacto__formulario">
+                <label for="especialidad" class="contacto__label">
+                    <select name="especialidad" id="especialidad" class="contacto__input" required>
+                        <option value="" disabled <?= empty($especialidad) ? 'selected' : '' ?>>Selecciona una
+                            especialidad</option>
+                        <?php foreach ($especialidades as $esp): ?>
+                            <option value="<?= $esp ?>" <?= ($especialidad === $esp) ? 'selected' : '' ?>>
+                                <?= $esp ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                    <span class="contacto__placeholder">Especialidad</span>
+                    <span class="contacto__error"></span>
+                </label>
+
+                <button type="submit" class="contacto__boton">Buscar</button>
+            </form>
         </section>
+        <style>
+            .doctores__especialidad {
+                display: flex;
+                align-items: stretch; 
+                flex-wrap: wrap;
+                padding: 1rem;
+                border: 2px solid var(--rosa);
+                border-radius: 1rem;
+                max-width: min-content;
+                width: auto; 
+                height: min-content;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;            
+            }
+            .doctores__imagen {
+                object-fit: cover;   
+                aspect-ratio: 1 / 1; 
+                max-height: 250px;
+                width: auto;
+            }
+            .doctores__texto{
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                height: max-content;
+            }
+            .doctores__titulo{
+                color: var(--rosa);
+            }
+        </style>
+
+        <?php
+        if (!empty($especialidad)) {
+            $consulta = "SELECT * FROM doctores WHERE especialidad = '$especialidad'";
+            $resultado = mysqli_query($conexion, $consulta);
+
+            echo "<section class='resultado__doctores'>";
+            echo "<h3>Doctores en: <strong>$especialidad</strong></h3>";
+
+            if (mysqli_num_rows($resultado) > 0) {
+                while ($doctor = mysqli_fetch_assoc($resultado)) {
+                    echo "
+                    <div class = 'doctores__especialidad'>
+                        <img class = 'doctores__imagen' src='assets/img/indexDoctor.png' alt=''>
+                        <div class = 'doctores__texto'>
+                            <h2 class='doctores__titulo'>" . $doctor['nombre'] . "</h2>
+                            <p>$especialidad</p>
+                            <h2 class='doctores__titulo'>Formación</h2>
+                            <p>Ced. Prof. " . $doctor['cedulaProfesional'] . "</p>
+                            <p>Correo. " . $doctor['correoElectronico'] . "</p>
+                            <p>Tel. " . $doctor['telefono'] . "</p>
+
+                        </div>
+                    </div>";
+                }
+            } else {
+                echo "<p>No se encontraron doctores con esa especialidad.</p>";
+            }
+
+            echo "</section>";
+        }
+        ?>
+
         <section>
             <h3 class="secciones__subtitulo">Conoce nuestras</h3>
             <h2 class="secciones__titulo">Instalaciones</h2>
@@ -502,8 +603,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     </label>
 
                     <label for="telefono" class="contacto__label">
-                        <input placeholder="" type="number" name="telefono" id="telefono" class="contacto__input" maxlength="10"
-                            value="<?= htmlspecialchars($telefono) ?>">
+                        <input placeholder="" type="number" name="telefono" id="telefono" class="contacto__input"
+                            maxlength="10" value="<?= htmlspecialchars($telefono) ?>">
                         <span class="contacto__placeholder">Teléfono</span>
                         <span class="contacto__error"><?= $errores['telefono'] ?? '' ?></span>
                     </label>

@@ -115,7 +115,7 @@ function splideServicios() {
             servicio.style.backgroundColor = "var(--blanco)";
             servicio.style.color = color;
             servicio.style.border = `2px solid ${color}`;
-
+            
             servicio.addEventListener("mouseenter", () => {
                 servicio.style.backgroundColor = color;
                 servicio.style.color = "white";
@@ -229,34 +229,34 @@ function splideInstalaciones() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const modal = document.getElementById("contactoModal");
+    const modal = document.getElementById("contactoModal");
 
-  if (modal && typeof modal.showModal === "function") { 
-    if (!modal.open) {
-      modal.showModal();
-      modal.style.display = "flex";
+    if (modal && typeof modal.showModal === "function") {
+        if (!modal.open) {
+            modal.showModal();
+            modal.style.display = "flex";
+        }
     }
-  }
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  const modal = document.getElementById("registroModal");
+    const modal = document.getElementById("registroModal");
 
-  if (modal && typeof modal.showModal === "function") { 
-    if (!modal.open) {
-      modal.showModal();
-      modal.style.display = "flex";
+    if (modal && typeof modal.showModal === "function") {
+        if (!modal.open) {
+            modal.showModal();
+            modal.style.display = "flex";
+        }
     }
-  }
 });
 document.addEventListener('DOMContentLoaded', () => {
-            const modal = document.getElementById('confirmModal');
-            if (modal) {
-                modal.showModal();
+    const modal = document.getElementById('confirmModal');
+    if (modal) {
+        modal.showModal();
 
-                // Cancelar: cerrar modal y no hacer nada
-                document.getElementById('cancelBtn').addEventListener('click', () => {
-                    modal.close();
-                });
-            }
+        // Cancelar: cerrar modal y no hacer nada
+        document.getElementById('cancelBtn').addEventListener('click', () => {
+            modal.close();
         });
+    }
+});
