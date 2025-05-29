@@ -157,12 +157,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["registro_usuario"])) 
                     <li class="menu__elemento"><a class="menu__enlace" onclick="menuDesplegable(2)" href="#">Accesos
                             rápidos</a>
                         <ul class="menu__desplegable" id="menuAccesos">
-                            <li><a class="menu__enlace" href="">Resultados</a></li>
-                            <li><a class="menu__enlace" href="">Agendar cita</a></li>
-                            <li><a class="menu__enlace" href="">Cambiar cita</a></li>
-                            <li><a class="menu__enlace" href="">Reembolso</a></li>
-                            <li><a class="menu__enlace" href="">Facuración electrónica</a></li>
-                            <li><a class="menu__enlace" href="">Evalúa nuestros servicios</a></li>
+                            <li><a class="menu__enlace" href="agendarCita.php">Agendar cita</a></li>
+                            <li><a class="menu__enlace" href="modificarCita.php">Cambiar cita</a></li> 
                         </ul>
                     </li>
                     <li class="menu__elemento"><a class="menu__enlace" href="iniciarSesion.php">Iniciar sesión</a></li>
