@@ -132,14 +132,14 @@ if ($resDoc) {
                             <li><a class="menu__enlace" href="modificarCita.php">Cambiar cita</a></li> 
                         </ul>
                     </li>
-                    <li class="menu__elemento"><a class="menu__enlace" href="iniciarSesion.php">Iniciar sesión</a></li>
+                    <li class="menu__elemento"><a class="menu__enlace" href="../php/cerrarSesion.php">Cerrar sesión</a>
                 </ul>
             </nav>
         </section>
     </header>
 
     <main class="portada login">
-        <section class="login__contenedor">
+        <section class="login__contenedor" style = "flex-direction: column; gap:  1rem;">
             <h2 class="login__titulo">Mis Citas Médicas</h2>
 
             <?php if ($mensaje): ?>
@@ -161,7 +161,7 @@ if ($resDoc) {
                     $index++;
                     ?>
                     <div class="mensajes" style="border-color: <?= $color ?>; background-color: var(--blanco);">
-                        <form method="POST" class="mensaje__contenido" novalidate>
+                        <form method="POST" class="mensaje__contenido" novalidate style = "flex-direction: column; gap: 2rem;">
                             <input type="hidden" name="idCita" value="<?= $fila['idCita'] ?>" />
                             
                             <label for="idMedico_<?= $fila['idCita'] ?>" class="contacto__label">

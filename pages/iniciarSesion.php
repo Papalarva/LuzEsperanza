@@ -1,40 +1,15 @@
 <?php
 session_start();
-
 include("../php/conexion.php");
 
-if (!isset($_SESSION['correo'])) {
-    header("Location: iniciarSesion.php");
+// Redirigir si ya ha iniciado sesión
+if (isset($_SESSION['correo'])) {
+    header("Location: perfil.php");
     exit;
 }
 
-$correo = $_SESSION['correo'];
 $errores = [];
-$actualizacion_exitosa = false;
-
-// Obtener datos actuales del paciente
-$sql = "SELECT * FROM pacientes WHERE correoElectronico = '$correo'";
-$resultado = $conexion->query($sql);
-
-if ($resultado && $resultado->num_rows === 1) {
-    $paciente = $resultado->fetch_assoc();
-
-    // Asignar valores para mostrar en el formulario
-    $nombre = $paciente['nombre'];
-    $apellidoPaterno = $paciente['apellidoPaterno'];
-    $apellidoMaterno = $paciente['apellidoMaterno'];
-    $fecha_nacimiento = $paciente['fechaNacimiento'];
-    $sexo = $paciente['sexo'];
-    $estado_nacimiento = $paciente['estadoNacimiento'];
-    $curp = $paciente['CURP'];
-    $telefono = $paciente['telefono'];
-} else {
-    // Si no existe, redireccionar o mostrar error
-    die("Error: No se encontraron datos del paciente.");
-}
-
 $mostrar_modal = false;
-$errores = [];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["iniciar_sesion"])) {
     $correo = $_POST["correo"] ?? '';
@@ -51,13 +26,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["iniciar_sesion"])) {
 
             if ($contrasena === $usuario['contraseña']) {
                 $_SESSION['correo'] = $usuario['correoElectronico'];
-                $_SESSION['tipoUsuario'] = $usuario['tipoUsuario']; 
-                if ($usuario['tipoUsuario'] === 'admin') {
-                    header("Location: admin.php");
-                } else {
-                    header("Location: perfil.php");
+                $_SESSION['tipoUsuario'] = $usuario['tipoUsuario'];
+
+                // Si el usuario no es administrador, obtener sus datos de paciente
+                if ($usuario['tipoUsuario'] !== 'admin') {
+                    $sqlPaciente = "SELECT * FROM pacientes WHERE correoElectronico = '$correo'";
+                    $resultadoPaciente = $conexion->query($sqlPaciente);
+
+                    if ($resultadoPaciente && $resultadoPaciente->num_rows === 1) {
+                        $paciente = $resultadoPaciente->fetch_assoc();
+
+                        // Puedes guardar estos datos en sesión si los necesitas después
+                        $_SESSION['nombre'] = $paciente['nombre'];
+                        $_SESSION['apellidoPaterno'] = $paciente['apellidoPaterno'];
+                        $_SESSION['apellidoMaterno'] = $paciente['apellidoMaterno'];
+                        $_SESSION['fechaNacimiento'] = $paciente['fechaNacimiento'];
+                        $_SESSION['sexo'] = $paciente['sexo'];
+                        $_SESSION['estadoNacimiento'] = $paciente['estadoNacimiento'];
+                        $_SESSION['CURP'] = $paciente['CURP'];
+                        $_SESSION['telefono'] = $paciente['telefono'];
+                    } else {
+                        $errores[] = "No se encontraron datos del paciente.";
+                        $mostrar_modal = true;
+                    }
                 }
-                exit;
+
+                if (empty($errores)) {
+                    if ($usuario['tipoUsuario'] === 'admin') {
+                        header("Location: admin.php");
+                    } else {
+                        header("Location: perfil.php");
+                    }
+                    exit;
+                }
             } else {
                 $errores[] = "Contraseña incorrecta.";
             }
